@@ -1,0 +1,160 @@
+body{
+    margin:0;
+}
+/*TODO
+Zmień gdzie to możliwe z px na em
+*/
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #222E58 0%, #5CA7FD 100%) 0% 0% no-repeat padding-box;
+
+    display: flex;
+    /*aby jeden alement był obok drugiego*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo-container{
+    margin: 5em 0 0 0 ;
+    height: 20%;
+
+}
+.logo{
+    text-align:center top;
+    font: italic;
+    color:#FFFFFF;
+    font-size: 60px;
+}
+.login-sign-container{
+    margin: 0 0 5em 0 ;
+
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 80%;
+    width: 55%;
+}
+
+.login-container{
+    /*TODO czy potrzebne? czy mogę zastąpić czymś żeby wycentrować?*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 0.4em;
+    height: 100%;
+    width: 50%;
+    background: #FFFFFF4D 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 65px;
+    
+}
+
+/*
+TODO
+Add sth between buttons login sign up (line or)
+*/
+.additional-signup{
+    display: none;
+}
+
+.signup-container{
+    /*TODO czy potrzebne? czy mogę zastąpić czymś żeby wycentrować?*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 0.4em;
+    height: 100%;
+    width: 50%;
+    background: #FFFFFF4D 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 65px;
+    
+}
+
+/*
+TODO
+button, input - change text size/font
+*/
+button{
+    background: #222E58 0% 0% no-repeat padding-box;
+    width:120%;
+    line-height: 3.5em;
+    border: none;
+    border-radius: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+    margin: 1em 0;
+
+}
+
+input{
+    background: #FFFFFFB8 ;
+    border-radius: 26px;
+    border:none;
+    padding: 0 2em;
+    
+    margin: 1em 0;
+    width:100%;
+    line-height: 3.5em;
+}
+
+::placeholder{
+    color: #001F86;
+}
+
+@media only screen and (max-device-width: 420px){
+    *{
+        font-size:36px;
+    }
+
+    .logo{
+        font-size: 2.5em
+    }
+    /*
+    TODO
+    Czy w ten sposób powinno się przekształcać kontenery?
+    */
+    .signup-container{
+        display: none;
+    }
+
+    .login-sign-container{
+        margin: 0 0 5em 0 ;
+        height: 80%;
+        width: 100%;
+    }
+    .login-container{
+        margin: 0 0.4em;
+        width: 80%;        
+    }
+
+    /*
+    TODO
+    Zmień to! przycisk nie zmienia się dobrze podczas zmiany rozdzielczości
+    Na inne urządzenia mobilne
+    Jakiś padding??
+    */
+    .additional-signup{
+        display: flex;
+        height: 20%;
+        width: 55%;
+    }
+
+}
