@@ -22,11 +22,20 @@
                     <button>SIGN UP</button>
                 </form>
             </div>
-            <div class="login-container">
-                <form>
-                    <input name="username" type="text" placeholder="username">
+            <div class="login-container" >
+                <form class="login" action="login" method="POST">
+                    <div class="message">
+                        <?php
+                        if(isset($messages)){
+                            foreach ($messages as $message){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="email" type="text" placeholder="email">
                     <input name="password" type="password" placeholder="password">
-                    <button>LOG IN</button>
+                    <button type="submit">LOG IN</button>
                 </form>
                 <div class="additional-signup">
                     <button>SIGN UP</button>

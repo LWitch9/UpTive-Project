@@ -4,14 +4,13 @@
 
     class DefaultController extends AppController{
         public function index(){
-            //TODO display login.html
+            //TODO display login.php
             $this->render('login');
         }
 
         public function home(){
-             //TODO display home.html
+             //TODO display home.php
              $this->render('home');
         }
 
     }
-?>
