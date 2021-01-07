@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1dcadecc-05d8-4569-a544-91c802bc2e6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/basic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/basic2_not_square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/home.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1l0w9U1AHlZOBZXrUdSMkytYY3l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\AGA\nauka\WdPAI\UpTive\UpTive-Project\public\img" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\agix9\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dcadecc-05d8-4569-a544-91c802bc2e6d" name="Default Changelist" comment="" />
+      <created>1606747167944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606747167944</updated>
+      <workItem from="1606747171627" duration="6866000" />
+      <workItem from="1606927307634" duration="3532000" />
+      <workItem from="1609940153510" duration="142000" />
+      <workItem from="1609940301235" duration="3305000" />
+      <workItem from="1610026852300" duration="145000" />
+      <workItem from="1610027007629" duration="10507000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1248" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606930417201">
+      <screen x="-1680" y="27" width="1680" height="1010" />
+    </state>
+    <state x="-1248" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-1680.27.1680.1010@-1680.27.1680.1010" timestamp="1606930417201" />
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1606754155321">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1606754155321" />
+    <state x="434" y="170" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610032751955">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1110" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-1680.27.1680.1010@-1680.27.1680.1010" timestamp="1610027019396" />
+    <state x="434" y="170" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1610032751955" />
+    <state x="401" y="64" key="NewPhpClassDialog" timestamp="1606749999520">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="401" y="64" key="NewPhpClassDialog/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1606749999520" />
+    <state x="-833" y="99" key="RollbackChangesDialog" timestamp="1606933700740">
+      <screen x="-1680" y="27" width="1680" height="1010" />
+    </state>
+    <state x="-833" y="99" key="RollbackChangesDialog/0.0.1280.680/-1680.27.1680.1010@-1680.27.1680.1010" timestamp="1606933700740" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1606747529206">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1606747529206" />
+  </component>
+</project>
