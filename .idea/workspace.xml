@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dcadecc-05d8-4569-a544-91c802bc2e6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/basic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/basic2_not_square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/calendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/views/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/home.html" afterDir="false" />
     </list>
@@ -37,6 +38,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,6 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -79,7 +82,12 @@
       <workItem from="1609940153510" duration="142000" />
       <workItem from="1609940301235" duration="3305000" />
       <workItem from="1610026852300" duration="145000" />
-      <workItem from="1610027007629" duration="10507000" />
+      <workItem from="1610027007629" duration="11273000" />
+      <workItem from="1610106794666" duration="93000" />
+      <workItem from="1610106896384" duration="28000" />
+      <workItem from="1610106928865" duration="3392000" />
+      <workItem from="1610184114258" duration="379000" />
+      <workItem from="1610184500258" duration="11817000" />
     </task>
     <servers />
   </component>
@@ -124,5 +132,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1606747529206" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1610108193910">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1680.27.1680.1010@0.0.1280.680" timestamp="1610108193910" />
   </component>
 </project>
