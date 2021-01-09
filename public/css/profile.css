@@ -14,13 +14,52 @@ main-content-profile{
 left-main{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+    overflow-y:scroll;
 
     padding: 0 1em;
     color: white;
     border-right: solid 0.1em white;
 
     min-height:75vh;
+    max-height:85vh;
     min-width: 45vw;
+    max-width:45vw;
+
+}
+left-main h{
+    font-size: 2em;
+}
+.socials{
+    color:#FFFFFF;
+    display: flex;
+    flex-direction: row;
+}
+.socials>i{
+    margin:0.7em;
+}
+.bio-text{
+    margin:0.5em 1em;
+}
+.avatar-profile{
+    //align-self: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width:  16em;
+    max-height: 16em;
+    color:black;
+    border-radius: 50%;
+    padding: 1em;
+    background: #FFFFFF;
+}
+.avatar-profile>img{
+    width:  15em;
+    height: 15em;
+    border-radius: 50%;
+    border: solid 1em #222E58
 }
 
 right-main{
@@ -33,3 +72,64 @@ right-main{
     min-height:75vh;
     min-width: 25vw;
 }
+.activity-container{
+
+    display: flex;
+    flex-direction: row;
+    margin: 1em 1em;
+}
+.activity-container>i{
+    padding-right:0.5em;
+    font-size:1.5em;
+}
+.activity{
+    margin-right: 0.2em;
+    color:#FFFFFF;
+    font-size:1.5em;
+    min-width:8em;
+}
+
+.activity-level{
+    background: #FFFFFF;
+    border-radius: 25%;
+
+    min-width: 6em;
+    max-width: 6em;
+    min-height: 0.5em;
+    max-height: 0.5em;
+}
+right-main>i{
+    padding:0.5em;
+    font-size:2em;
+
+}
+.achievement-container{
+    display: flex;
+    background: #FFFFFF;
+    flex-direction: row;
+    margin: 1em 1em;
+    border-radius: 20px;
+    padding-right:0.5em;
+    max-height:4.5em;
+
+
+}
+.achievement-text-container{
+    display:flex;
+    flex-direction: column;
+    padding:0.5em;
+
+}
+.achievement-text{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size:0.8em;
+    color: #222E58;
+}
+.achievement-title{
+    font-weight: bold;
+    color: #222E58;
+    font-size:1.5em;
+}
+
+

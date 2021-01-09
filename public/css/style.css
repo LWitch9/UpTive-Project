@@ -265,7 +265,6 @@ left-bar{
     display: flex;
     flex-direction: column;
     align-items: center;
-    //flex-wrap: nowrap;
     overflow-y: scroll;
 
     margin-top: 3em;
@@ -291,8 +290,8 @@ main-content{
     margin:1em;
     //padding: 0 7em 0 0;
     align-self: flex-start;
-    max-width: 10em;
-    min-width: 10em;
+    max-width: 13em;
+    min-width: 13em;
 
 }
 
