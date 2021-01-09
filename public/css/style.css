@@ -176,11 +176,6 @@ nav-bar{
     background: transparent linear-gradient(180deg, #222E58 0%, #5CA7FD 100%) 0 0 no-repeat padding-box;
     height: 6em;
 }
-nav-bar.logo{
-    /*TODO zmień logo dla nav-bar. Jak??*/
-    font-size: 0.5em;
-    background:#FFFFFF 0% 0% no-repeat padding-box;
-}
 
 .add-activity {
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -276,20 +271,9 @@ left-bar{
     overflow-y: scroll;
 
     margin-top: 3em;
+    padding: 0 0.2em 0 0.5em;
     height: 80vh;
-    width: 25vw;
-}
-.calendar{
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-    border-radius: 51px;
-    opacity: 0.55;
-
-    margin: 1em 1em;
-    //padding: 7em 10em;
-
-    min-height: 8em;
-    min-width: 15em;
+    width: 20vw;
 }
 main-content{
     display: flex;
@@ -297,44 +281,20 @@ main-content{
     align-items: center;
     flex-wrap: nowrap;
     overflow-y: scroll;
-    padding: 3em;
+    padding: 3em 0 ;
 
-    height: 75vh;
-    width: 75vw;
-}
+    height:75vh;
+    width: 80vw;
 
-.events-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    height: 50vh;
-    width: 65vw;
-}
-.events-container>i{
-    font-size: 3em;
-}
-.event{
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-    border-radius: 51px;
-    opacity: 0.55;
-
-    min-height: 20em;
-    min-width: 13em;
-
-    margin: 1em 1em;
-    //padding: 7em 10em;
 }
 
 .title-label{
     border-bottom: 0.1em solid white;
-    margin-left:4.5em ;
-    padding: 0 7em 0 0;
+    margin:1em;
+    //padding: 0 7em 0 0;
     align-self: flex-start;
-    max-width: 8em;
-    min-width: 8em;
+    max-width: 10em;
+    min-width: 10em;
 
 }
 
