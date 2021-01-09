@@ -1,0 +1,35 @@
+main-content-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    padding: 3em 0 ;
+
+    height:75vh;
+    width: 80vw;
+
+}
+
+left-main{
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 1em;
+    color: white;
+    border-right: solid 0.1em white;
+
+    min-height:75vh;
+    min-width: 45vw;
+}
+
+right-main{
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 1em;
+    color: white;
+
+    min-height:75vh;
+    min-width: 25vw;
+}

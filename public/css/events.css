@@ -103,14 +103,16 @@ ul>li>i{
     text-align: center;
     line-height: 2em;
 }
-.avatar{
+.avatar_event{
     padding: 0.1em 0.1em;
     margin-left: -0.7em;  /*To overlap*/
 }
-.avatar>img{
+.avatar_event>img{
     width: 2.3em;
     height: 2.3em;
-    border: solid 0.15em black;
+    border-radius: 50%;
+    border: solid 0.15em #222E58;
+
 }
 .icons{
     color:#222E58;
