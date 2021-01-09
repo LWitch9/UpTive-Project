@@ -275,7 +275,7 @@ left-bar{
 main-content{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    //align-items: center;
     flex-wrap: nowrap;
     overflow-y: scroll;
     padding: 3em 0 ;

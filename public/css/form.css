@@ -1,0 +1,63 @@
+.form-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-items: flex-start;
+    margin: 1em;
+
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+    height:75vh;
+    width: 65vw;
+    padding:0;
+}
+input{
+    margin:1em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #5CA7FD;
+    border-radius: 10px;
+    opacity: 1;
+    min-height: 3.5em;
+    max-height: 3.5em;
+    min-width: 10em;
+}
+textarea{
+    margin:2em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #5CA7FD;
+    border-radius: 10px;
+    opacity: 1;
+}
+select{
+
+    margin:1em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #5CA7FD;
+    border-radius: 10px;
+    opacity: 1;
+    min-width: 30em;
+    min-height: 3.5em;
+}
+option{
+    color: #222E58;
+}
+::placeholder{
+    color: #222E58;
+}
+
+button{
+    align-self: flex-end;
+    width:15em;
+    height:4em;
+
+    background: #5CA7FD 0% 0% no-repeat padding-box;
+    border-radius: 25px;
+    //font-size: 1em;
+    padding:0;
+    margin:0;
+}
