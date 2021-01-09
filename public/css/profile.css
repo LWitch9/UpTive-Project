@@ -16,7 +16,6 @@ left-main{
     flex-direction: column;
     align-items: center;
     justify-items: flex-start;
-    overflow-y:scroll;
 
     padding: 0 1em;
     color: white;
@@ -132,4 +131,24 @@ right-main>i{
     font-size:1.5em;
 }
 
+@media only screen and (max-device-width: 420px) {
+    * {
+        font-size: 36px;
+    }
+    main-content-profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        padding: 3em 0 ;
 
+        height:100%;
+        width: 100%;
+
+    }
+    left-main{
+        min-width:100%;
+        min-height: 100%;
+    }
+}

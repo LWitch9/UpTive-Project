@@ -125,3 +125,15 @@ ul>li>i{
 .icons>i:last-child{
     color:red;
 }
+@media only screen and (max-device-width: 420px){
+    *{
+        font-size:36px;
+    }
+
+    .logo{
+        font-size: 2.5em
+    }
+    .left-bar{
+        display:none;
+    }
+}
