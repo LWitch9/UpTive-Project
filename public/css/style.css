@@ -122,7 +122,7 @@ input::placeholder{
 }
 
 
-
+/*For views beside login page*/
 .base-container{
     display: flex;
     flex-direction: column;
@@ -243,6 +243,7 @@ main-content{
     flex-wrap: nowrap;
     overflow-y: scroll;
     padding: 3em 0 ;
+    background: #222E58;
 
     height:75vh;
     width: 80vw;
@@ -273,6 +274,10 @@ header{
     background: #222E58 0% 0% no-repeat padding-box;
     color: #FFFFFF;
     text-align: center;
+}
+nav-bar-mobile{
+    display: none;
+
 }
 @media only screen and (max-device-width: 420px){
     *{
@@ -315,25 +320,60 @@ header{
     }
 
     /*GENERAL*/
-    /*Home Page*/
-    main{
-        height:100%;
-        weight:100%;
+    base-container{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #222E58
     }
-    main-content{
-        height:100%;
-        weight:100%;
+    nav-bar{
+        display:none;
+    }
+    main{
+        height:100vh;
+        width: 100vw;
     }
     left-bar{
         display:none;
+    }
+    nav-bar-mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background: transparent linear-gradient(180deg, #222E58 0%, #5CA7FD 100%) 0 0 no-repeat padding-box;
+        min-height: 6em;
+        border-top: solid 0.1em white;
+        width: 100vw;
+    }
+    .icon-container-mobile{
+        color:white;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin:1em;
+    }
+    .icon-container-mobile>h{
+        font-size: 0.8em;
+    }
+    .icon-container-mobile>i{
+        font-size: 3em;
+        padding-bottom:0.2em
+    }
+    /*Home Page*/
+
+    main-content {
+        padding-right:1em;
+        height:80vh;
+        width: 100vw;
     }
 
 
 
     /*ADD ACTIVITY*/
     /*Try*/
-    nav-bar{
-        display:none;
-    }
+
 
 }
