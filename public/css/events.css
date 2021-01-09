@@ -1,0 +1,127 @@
+.calendar{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 55px;
+    opacity: 0.55;
+
+    color: #222E58;
+
+    margin: 1em 1em;
+
+    min-height: 10em;
+    min-width: 13em;
+}
+.events-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40vh;
+    width: 65vw;
+}
+.events-container>i{
+    font-size: 1em;
+}
+.event{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 51px;
+    opacity: 0.70;
+
+    min-height: 20em;
+    min-width: 13.5em;
+
+    margin: 1em 0.5em;
+}
+ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0 1em;
+}
+ul>li{
+    border-bottom: solid 0.1em #222E58;
+
+    margin: 1em 0;
+    max-width: 12.5em;
+    min-width: 12.5em;
+
+    color: #222E58;
+    font-size:0.9em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    //margin: 1.3em 0 ;
+}
+ul>li>i{
+    padding-right: 0.5em;
+
+}
+.status{
+    background: #222E5852 0% 0% no-repeat padding-box;
+    border-radius: 51px;
+    border: solid 0.2em black;
+    opacity: 0.55;
+
+    min-height: 1em;
+    max-width: 12em;
+    min-width: 12em;
+
+    color: #222E58;
+    opacity: 1;
+    text-align: center;
+    margin:0.5em;
+}
+
+.avatars-container{
+    display: flex;
+    flex-direction: row;
+    //justify-content: center;
+    //align-items: center;
+
+    //min-height:3em;
+    //min-width: 10em;
+
+}
+.number{
+    background: #A9AEC1D6 0% 0% no-repeat padding-box;
+    width: 2.3em;
+    height: 2.3em;
+    opacity:1;
+    color:#222E58;
+    border: solid 0.2em #222E58;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2em;
+}
+.avatar{
+    padding: 0.1em 0.1em;
+    margin-left: -0.7em;  /*To overlap*/
+}
+.avatar>img{
+    width: 2.3em;
+    height: 2.3em;
+    border: solid 0.15em black;
+}
+.icons{
+    color:#222E58;
+    display: flex;
+    flex-direction: row;
+
+
+}
+.icons>i{
+    margin:0.7em;
+}
+.icons>i:last-child{
+    color:red;
+}
