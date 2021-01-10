@@ -313,17 +313,37 @@ nav-bar-mobile{
         width: 80%;
     }
 
-    /*
-    TODO
-    Zmień to! przycisk nie zmienia się dobrze podczas zmiany rozdzielczości
-    Na inne urządzenia mobilne
-    Jakiś padding??
-    */
     .additional-signup{
         display: flex;
-        height: 20%;
-        width: 55%;
+        flex-direction: column;
+        align-items: center;
+        max-height: 10em;
+        max-width: 8em;
+        color:white;
+
     }
+    .additional-signup>button{
+        margin:3em;
+    }
+
+
+    /*Version after choosing sign up*/
+    /*
+    .signup-container{
+        margin: 0 0.4em;
+        width: 80%;
+
+    }
+
+    .login-sign-container{
+        margin: 0 0 5em 0 ;
+        height: 80%;
+        width: 100%;
+    }
+    .login-container{
+        display: none;
+    }
+    */
 
     /*GENERAL*/
     base-container{
@@ -343,8 +363,9 @@ nav-bar-mobile{
     }
     /*different for profile page*/
     main-content {
-        padding: 1em 0 ;
-
+        padding: 1em 0.5em ;
+        //padding-right:1em;
+        overflow-y: scroll;
         height:79vh;
         width: 100vw;
 
@@ -416,13 +437,7 @@ nav-bar-mobile{
     }
     /*Home Page*/
 
-    main-content {
-        padding-right:1em;
-        overflow-y: scroll;
-        height:79vh;
-        width: 100vw;
 
-    }
 
 
 

@@ -29,14 +29,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2em 0;
 
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 51px;
     opacity: 0.70;
-
-    min-height: 20em;
-    min-width: 13em;
-    max-width: 13em;
 
     margin: 1em 0.5em;
 }
