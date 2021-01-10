@@ -1,7 +1,7 @@
 main-content-profile{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
     overflow-y: scroll;
     padding: 3em 0 ;
@@ -15,16 +15,16 @@ left-main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: flex-start;
+    justify-content: flex-start;
 
     padding: 0 1em;
     color: white;
     border-right: solid 0.1em white;
-
     min-height:75vh;
     max-height:85vh;
     min-width: 45vw;
     max-width:45vw;
+
 
 }
 left-main h{
@@ -42,7 +42,6 @@ left-main h{
     margin:0.5em 1em;
 }
 .avatar-profile{
-    //align-self: center;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +67,7 @@ right-main{
     padding: 0 1em;
     color: white;
 
-    min-height:75vh;
+    //min-height:75vh;
     min-width: 25vw;
 }
 .activity-container{
@@ -141,9 +140,9 @@ right-main>i{
         align-items: center;
         flex-wrap: nowrap;
         overflow-y: scroll;
-        padding: 3em 0 ;
+        padding: 1em 0 ;
 
-        height:80vh;
+        height:79vh;
         width: 100vw;
 
     }
