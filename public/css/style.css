@@ -343,8 +343,8 @@ nav-bar-mobile{
     }
     /*different for profile page*/
     main-content {
-        padding-right:1em;
-        overflow-y: scroll;
+        padding: 1em 0 ;
+
         height:79vh;
         width: 100vw;
 
