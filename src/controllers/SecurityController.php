@@ -57,7 +57,20 @@ class SecurityController extends AppController
         $password = $_POST["password"];
         $rpassword = $_POST["rpassword"];
 
-        return $this->render('login',['messages'=>['Anything'],'signup'=>["true"]]);
+        $userRepository = new UserRepository();
+        //Check if there is some user with this email already; if no user=null
+        $user = $userRepository->getUser($email);
+        if($user!=null){
+            return $this->render('login',['messages'=>['User with this email already exists'],'signup'=>["true"]]);
+        }
+        if($password!=$rpassword){
+            return $this->render('login',['messages'=>['Passwords must match'],'signup'=>["true"]]);
+        }
+
+        //After everything was properly written
+        //TODO add user to database
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/home");
 
     }
 }

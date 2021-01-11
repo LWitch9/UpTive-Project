@@ -24,11 +24,11 @@
                         }
                         ?>
                     </div>
-                    <input name="name" type="text" placeholder="name">
-                    <input name="surname" type="text" placeholder="surname">
-                    <input name="email" type="text" placeholder="email">
-                    <input name="password" type="password" placeholder="password">
-                    <input name="rpassword" type="password" placeholder="repeat password">
+                    <input name="name" type="text" placeholder="name" required>
+                    <input name="surname" type="text" placeholder="surname" required>
+                    <input name="email" type="text" placeholder="email" required>
+                    <input name="password" type="password" placeholder="password" required>
+                    <input name="rpassword" type="password" placeholder="repeat password"required>
                     <button>SIGN UP</button>
                 </form>
             </div>
@@ -45,8 +45,8 @@
                         ?>
                     </div>
 
-                    <input name="email" type="text" placeholder="email">
-                    <input name="password" type="password" placeholder="password">
+                    <input name="email" type="text" placeholder="email" required>
+                    <input name="password" type="password" placeholder="password" required>
                     <button type="submit">LOG IN</button>
                 </form>
 
