@@ -41,4 +41,23 @@ class SecurityController extends AppController
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
     }
+
+    public function signup(){
+        //TODO it's temporarily here
+
+        //Weryfikacja metody post/get
+        if ( !$this->isPost() ){
+            return $this->render('login');
+        }
+
+        //Przechwycenie danych z formularza logowania
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $rpassword = $_POST["rpassword"];
+
+        return $this->render('login',['messages'=>['Anything'],'signup'=>["true"]]);
+
+    }
 }

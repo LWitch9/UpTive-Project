@@ -14,7 +14,16 @@
         </div>
         <div class="login-sign-container">
             <div class="signup-container">
-                <form>
+                <form action="signup" method="POST">
+                    <div class="message">
+                        <?php
+                        if(isset($messages) && isset($signup)){
+                            foreach ($messages as $message){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
                     <input name="name" type="text" placeholder="name">
                     <input name="surname" type="text" placeholder="surname">
                     <input name="email" type="text" placeholder="email">
@@ -28,7 +37,7 @@
                 <form class="login" action="login" method="POST">
                     <div class="message">
                         <?php
-                        if(isset($messages)){
+                        if(isset($messages) && !isset($signup)){
                             foreach ($messages as $message){
                                 echo $message;
                             }

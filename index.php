@@ -11,6 +11,7 @@ Routing::get('profile','DefaultController');
 Routing::get('addActivity','DefaultController');
 Routing::get('search','DefaultController');
 Routing::post('login','SecurityController');
+Routing::post('signup','SecurityController');
 
 Routing::run($path);
 
