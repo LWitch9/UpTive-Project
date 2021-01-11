@@ -69,6 +69,12 @@ class SecurityController extends AppController
 
         //After everything was properly written
         //TODO add user to database
+        $userRepository->addUser([
+            'name' => $name,
+            'surname' => $surname,
+            'email' => $email,
+            'password' => $password
+        ]);
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
 
