@@ -295,6 +295,7 @@ nav-bar-mobile{
     */
 
     /*Login page*/
+
     .signup-container{
         display: none;
     }
@@ -324,7 +325,7 @@ nav-bar-mobile{
 
 
     /*Version after choosing sign up*/
-    /*
+/*
     .signup-container{
         margin: 0 0.4em;
         width: 80%;
