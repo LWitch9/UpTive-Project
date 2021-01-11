@@ -2,5 +2,5 @@
 build/
 
 #idea directory
-.idea/
+/.idea/
 */.idea/
