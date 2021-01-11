@@ -2,13 +2,13 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
     public function login()
     {
-        //TODO zmienic na opcje z bazą danych - wersja tymczasowa;
-        $user = new User("John Snow","jsnow@pk.edu.pl","admin");
+        $userRepository = new UserRepository();
 
         //Weryfikacja metody post/get
         if ( !$this->isPost() ){
@@ -19,8 +19,15 @@ class SecurityController extends AppController
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        //Sprawdzenie czy uzytkownik o tych danych istnieje
-        //Jeśli nie istnieje przekaż komunikat
+        //Wyszukanie użytkownika o danym adresie w bazie
+        $user = $userRepository->getUser($email);
+
+        //Sprawdzenie czy taki użytkownik istnieje
+        if(!$user){
+            return $this->render('login',['messages'=>['User dosn\'t exist']]);
+        }
+
+        //Sprawdzenie poprawność danych
         if ($user->getEmail() != $email){
             return $this->render('login',['messages'=>['User with this email dosn\'t exist']]);
         }

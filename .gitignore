@@ -1,6 +1,9 @@
 .vscode/
 build/
 
+#sensitive data
+config.php
+
 #idea directory
 /.idea/
 */.idea/
