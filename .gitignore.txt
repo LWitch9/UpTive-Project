@@ -1,6 +1,0 @@
-.vscode/
-build/
-
-#idea directory
-.idea/
-*/.idea/
