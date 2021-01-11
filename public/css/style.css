@@ -143,11 +143,14 @@ nav-bar{
 }
 a {
     text-decoration: none;
+    color:white;
 
 }
-
-a:hover {
-    text-decoration: none;
+a:hover{
+    color: white;
+}
+.navi span{
+    border-bottom: solid 0.1em#FFFFFF;
 }
 
 .add-activity {
@@ -214,7 +217,12 @@ a:hover {
 
     //background: #FFFFFF 0% 0% no-repeat padding-box;
 }
-.navi-icons>i{
+.navi-icons>i {
+    color: #FFFFFF;
+    font-size: 2em;
+    padding: 0.5em 0.5em;
+}
+a>i{
     color: #FFFFFF;
     font-size: 2em;
     padding: 0.5em 0.5em;
