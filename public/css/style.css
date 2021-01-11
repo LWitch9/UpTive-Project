@@ -141,6 +141,14 @@ nav-bar{
     padding: 0.1em 0;
     width: 100vw;
 }
+a {
+    text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: none;
+}
 
 .add-activity {
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -150,11 +158,13 @@ nav-bar{
     padding:0.5em 2.5em;
     margin:0 0.5em;
 
+
     letter-spacing:0.01em;
     color: #222E58;
     font-weight: bold;
     white-space: nowrap;
 }
+
 .navi{
     text-align: center;
     flex-wrap: nowrap;

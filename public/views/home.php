@@ -15,10 +15,12 @@
                 <!--Temporarily-->
                 UpTive
             </div>
-            <div class="add-activity">
-                <i class="fas fa-plus-circle"></i>
-                 ADD ACTIVITY
-            </div>
+            <a href="http://localhost:8080/addActivity" class="button">
+                <div class="add-activity">
+                    <i class="fas fa-plus-circle"></i>
+                     ADD ACTIVITY
+                </div>
+            </a>
             <div class="navi">HOME</div>
             <div class="navi">SEARCH</div>
             <div class="navi">FRIENDS</div>

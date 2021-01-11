@@ -69,6 +69,7 @@ class SecurityController extends AppController
 
         //After everything was properly written
         //TODO add user to database
+        //TODO zahaszuj hasło
         $userRepository->addUser([
             'name' => $name,
             'surname' => $surname,
