@@ -15,13 +15,15 @@
         <div class="login-sign-container">
             <div class="signup-container">
                 <form>
-                    <input name="username" type="text" placeholder="username">
+                    <input name="name" type="text" placeholder="name">
+                    <input name="surname" type="text" placeholder="surname">
                     <input name="email" type="text" placeholder="email">
                     <input name="password" type="password" placeholder="password">
                     <input name="rpassword" type="password" placeholder="repeat password">
                     <button>SIGN UP</button>
                 </form>
             </div>
+
             <div class="login-container" >
                 <form class="login" action="login" method="POST">
                     <div class="message">
@@ -33,11 +35,14 @@
                         }
                         ?>
                     </div>
+
                     <input name="email" type="text" placeholder="email">
                     <input name="password" type="password" placeholder="password">
                     <button type="submit">LOG IN</button>
                 </form>
+
                 <div class="additional-signup">
+                    ---------- or ----------
                     <button>SIGN UP</button>
                 </div>
             </div>
