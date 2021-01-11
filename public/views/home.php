@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <link rel="stylesheet" type=text/css href="public/css/events.css">
 
-    <link rel="stylesheet" type=text/css href="../css/style.css">
-    <link rel="stylesheet" type=text/css href="../css/events.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>HOME PAGE</title>
 </head>
@@ -30,7 +30,7 @@
 
             <div class="avatar-container">
                 <div class="avatar">
-                    <img src="../img/basic.jpg" alt="Avatar">
+                    <img src="public/img/basic.jpg" alt="Avatar">
                 </div>
                 <br><br><br>
                 Name Surname
@@ -127,7 +127,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -148,7 +148,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -169,7 +169,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -190,7 +190,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -216,7 +216,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -237,7 +237,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -258,7 +258,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -279,7 +279,7 @@
                         <div class="avatars-container">
                             <div class="number">+2</div>
                             <div class="avatar_event">
-                                <img src="../img/basic.jpg" alt="Avatar">
+                                <img src="public/img/basic.jpg" alt="Avatar">
                             </div>
                         </div>
                         <ul>
@@ -326,7 +326,7 @@
                 <h>FRIENDS</h>
             </div>
             <div class="avatar">
-                <img src="../img/basic.jpg" alt="Avatar">
+                <img src="public/img/basic.jpg" alt="Avatar">
             </div>
 
         </nav-bar-mobile>
