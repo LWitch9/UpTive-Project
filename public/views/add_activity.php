@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type=text/css href="../css/style.css">
-    <link rel="stylesheet" type=text/css href="../css/events.css">
-    <link rel="stylesheet" type=text/css href="../css/form.css">
+    <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <link rel="stylesheet" type=text/css href="public/css/events.css">
+    <link rel="stylesheet" type=text/css href="public/css/form.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>ADD ACTIVITY</title>
 </head>
@@ -30,7 +30,7 @@
 
         <div class="avatar-container">
             <div class="avatar">
-                <img src="../img/basic.jpg" alt="Avatar">
+                <img src="public/img/basic.jpg" alt="Avatar">
             </div>
             <br><br><br>
             Name Surname
@@ -186,7 +186,7 @@
             <h>FRIENDS</h>
         </div>
         <div class="avatar">
-            <img src="../img/basic.jpg" alt="Avatar">
+            <img src="public/img/basic.jpg" alt="Avatar">
         </div>
 
     </nav-bar-mobile>
