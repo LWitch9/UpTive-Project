@@ -127,11 +127,11 @@ ul>li>i{
 .filters{
 
 }
-form{
+.filters>form{
     padding:0;
     margin-right:0;
 }
-select{
+.filters>form>select{
     color:white;
 //margin:1em;
     background: #222E58;
@@ -141,9 +141,7 @@ select{
     padding: 0.5em;
     max-width: 12em;
 }
-option{
-    color: white;
-}
+
 /*events*/
 .squared-avatar{
     display: flex;

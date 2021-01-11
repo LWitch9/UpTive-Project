@@ -59,7 +59,7 @@ option{
 button{
     align-self: flex-end;
     width:15em;
-    height:4em;
+    //height:4em;
 
     background: #5CA7FD 0% 0% no-repeat padding-box;
     border-radius: 25px;
@@ -93,5 +93,8 @@ button{
     }
     .form-container{
         margin:0;
+    }
+    button{
+        margin-right:1em;
     }
 }
