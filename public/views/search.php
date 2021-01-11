@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type=text/css href="../css/style.css">
-    <link rel="stylesheet" type=text/css href="../css/events.css">
+    <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <link rel="stylesheet" type=text/css href="public/css/events.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>SEARCH PAGE</title>
 </head>
@@ -29,7 +29,7 @@
 
         <div class="avatar-container">
             <div class="avatar">
-                <img src="../img/basic.jpg" alt="Avatar">
+                <img src="public/img/basic.jpg" alt="Avatar">
             </div>
             <br><br><br>
             Name Surname
@@ -69,14 +69,14 @@
             <div class="events-container">
                 <div class="event">
                     <div class="squared-avatar">
-                        <img src="../img/basic.jpg" alt="Avatar">
+                        <img src="public/img/basic.jpg" alt="Avatar">
                         Name Surname
                     </div>
 
                     <div class="avatars-container">
                         <div class="number">+2</div>
                         <div class="avatar_event">
-                            <img src="../img/basic.jpg" alt="Avatar">
+                            <img src="public/img/basic.jpg" alt="Avatar">
                         </div>
                     </div>
                     <div class="event_search_labels">
@@ -124,7 +124,7 @@
             <h>FRIENDS</h>
         </div>
         <div class="avatar">
-            <img src="../img/basic.jpg" alt="Avatar">
+            <img src="public/img/basic.jpg" alt="Avatar">
         </div>
 
     </nav-bar-mobile>

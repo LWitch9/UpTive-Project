@@ -9,6 +9,7 @@ Routing::get('','DefaultController');
 Routing::get('home','DefaultController');
 Routing::get('profile','DefaultController');
 Routing::get('addActivity','DefaultController');
+Routing::get('search','DefaultController');
 Routing::post('login','SecurityController');
 
 Routing::run($path);
