@@ -148,8 +148,8 @@
                     <div class="form-container">
                         <select id="activity" name="activity" required>
                             <option value="" disabled selected>Choose activity</option>
-                            <option value="sw">Swimming</option>
-                            <option value="sw">Swimming</option>
+                            <option value="Swimming">Swimming</option>
+                            <option value="Volleyball">Volleyball</option>
                             <option value="sw">Swimming</option>
                         </select>
                         <select id="type" name="type" >
@@ -164,9 +164,9 @@
                     <div class="form-container">
                         <select id="location" name="location" required>
                             <option value="" disabled selected>Choose preferred location</option>
-                            <option value="kr-kro">KRAKOW,KROWODRZA</option>
-                            <option value="kr-str">KRAKOW,STARE MIASTO</option>
-                            <option value="kr-kzi">KRAKOW,KAZIMIERZ</option>
+                            <option value="KRAKOW,KROWODRZA">KRAKOW,KROWODRZA</option>
+                            <option value="KRAKOW,STARE MIASTO">KRAKOW,STARE MIASTO</option>
+                            <option value="KRAKOW,KAZIMIERZ">KRAKOW,KAZIMIERZ</option>
                         </select>
                         <input type="date" name="date" id="date" min="2021-01-01" max="2023-12-31" required>
                         <input type="time" id="time" name="time" required>

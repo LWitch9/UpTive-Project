@@ -17,9 +17,7 @@
         public function addActivity(){
             $this->render('add_activity');
         }
-        public function search(){
-            $this->render('search');
-        }
+
 
 
     }

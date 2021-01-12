@@ -9,7 +9,7 @@ Routing::get('','DefaultController');
 Routing::get('home','DefaultController');
 Routing::get('profile','DefaultController');
 Routing::get('addActivity','DefaultController');
-Routing::get('search','DefaultController');
+Routing::get('search','EventController');
 Routing::post('login','SecurityController');
 Routing::post('signup','SecurityController');
 Routing::post('addEvent','EventController');

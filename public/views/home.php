@@ -143,8 +143,8 @@
                             </div>
                         </div>
                         <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
+                            <li><i class="fas fa-swimmer"></i></li>
+                            <li><i class="fas fa-map-marker-alt"></i></li>
                             <li> <i class="far fa-calendar-alt"></i></li>
                             <li><i class="far fa-clock"></i></li>
                         </ul>

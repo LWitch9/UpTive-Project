@@ -14,6 +14,10 @@ class EventController extends AppController
         parent::__construct();
         $this->eventRepository = new EventRepository();
     }
+    public function search(){
+        $events = $this->eventRepository->getEvents();
+        $this->render('search',['events'=>$events]);
+    }
     public function addEvent(){
         if(!$this->isPost())
             $this->render('addActivity');
@@ -21,7 +25,6 @@ class EventController extends AppController
         $event = new Event($_POST['activity'], $_POST['location'],$_POST['date'], $_POST['time'], $_POST['about']);
         $this->eventRepository->addEvent($event);
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location:{$url}/home");
+        return $this->render('profile',['event'=>$event]);
     }
 }

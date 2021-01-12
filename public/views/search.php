@@ -79,7 +79,9 @@
         </left-bar>
         <main-content>
             <div class="events-container">
+                <?php foreach ($events as $event):?>
                 <div class="event">
+
                     <div class="squared-avatar">
                         <img src="public/img/basic.jpg" alt="Avatar">
                         Name Surname
@@ -93,10 +95,10 @@
                     </div>
                     <div class="event_search_labels">
                         <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
+                            <li><i class="fas fa-swimmer"></i><?= $event->getActivity() ?> </li>
+                            <li><i class="fas fa-map-marker-alt"></i><?= $event->getLocation()?>  </li>
+                            <li> <i class="far fa-calendar-alt"></i><?= $event->getDate() ?> </li>
+                            <li><i class="far fa-clock"></i><?= $event->getTime() ?> </li>
                         </ul>
                     </div>
                     <div class="message-container">
@@ -107,6 +109,7 @@
                     </form>
 
                 </div>
+                <?php endforeach; ?>
             </div>
 
         </main-content>
