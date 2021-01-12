@@ -12,6 +12,7 @@ Routing::get('addActivity','DefaultController');
 Routing::get('search','DefaultController');
 Routing::post('login','SecurityController');
 Routing::post('signup','SecurityController');
+Routing::post('addEvent','EventController');
 
 Routing::run($path);
 

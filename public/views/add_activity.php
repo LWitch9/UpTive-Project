@@ -162,7 +162,7 @@
                     </div>
                     <div class="title-label">LOCATION AND TIME</div>
                     <div class="form-container">
-                        <select id="location" name="location"  required>
+                        <select id="location" name="location" required>
                             <option value="" disabled selected>Choose preferred location</option>
                             <option value="kr-kro">KRAKOW,KROWODRZA</option>
                             <option value="kr-str">KRAKOW,STARE MIASTO</option>

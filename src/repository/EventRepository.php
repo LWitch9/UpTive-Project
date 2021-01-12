@@ -1,41 +1,58 @@
 <?php
 require_once "Repository.php";
-require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/Event.php';
 
-class UserRepository extends Repository
+class EventRepository extends Repository
 {
-    public function getUser(string $email): ?User
+    public function getProject(int $id): ?Event
     {
+        //TODO end method
         //Polecenie pobrania danych z bazy
         $statement = $this->database->connect()->prepare(
-            'SELECT * FROM public.users WHERE email = :email'
+            'SELECT * FROM public.events WHERE id = :id'
         );
-        //przypisanie danej :email z bazy do zmiennej $email
-        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        $event = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if($user == false){
-            //Przypadek kiedy użytkownik nie zostanie znaleźiony (zamiast tablicy asocjacyjnej zawiera false)
-            //TODO zrobić exception który zostanie rzucony w tym przypadku
-            return null;
+        if($event == false){
+           return null;
         }
 
-        return new User(
-            $user['name'], //Change user structure (replace one username with two name and surname)
-            $user['surname'],
-          $user['email'],
-          $user['password']
+        return new Event(
+            //TODO how to pass activity by id??
+            $event['location'],
+            $event['date'],
+            $event['time'],
+            $event['message'],
+            $event['id_activity']
 
         );
     }
-    public function addUser(array $data){
+    public function addEvent(Event $event){
+
+        $date = new DateTime();
+        $activityRepo = new ActivityRepository();
+
         $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.users (name, surname, email, password) VALUES(:name,:surname,:email,:password);"
+            "INSERT INTO public.events (id_assigned_by, location, date, time, message, created_at, id_activity) 
+                    VALUES(?,?,?,?,?,?,?);"
         );
 
+        //TODO Pobrać na podstawie sesji
+        $assignedById = 1;
+        $tempActivityId =1;
+        $statement->execute([
+            $assignedById,
+            $event->getLocation(),
+            $event->getDate(),
+            $event->getTime(),
+            $event->getMessage(),
+            $date->format('Y-m-d'),
+            $tempActivityId
+            //$activityRepo->findActivityId($event->getActivity())
 
-        $statement->execute($data);
+        ]);
     }
 }
