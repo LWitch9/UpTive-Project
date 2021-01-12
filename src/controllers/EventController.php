@@ -27,4 +27,9 @@ class EventController extends AppController
 
         return $this->render('profile',['event'=>$event]);
     }
+
+    public function getEventsOfUser(){
+
+    }
+
 }
