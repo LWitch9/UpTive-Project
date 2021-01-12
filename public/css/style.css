@@ -146,7 +146,12 @@ a {
     color:white;
 
 }
-a:hover{
+a.add-activity{
+    background: red;
+    opacity:1;
+}
+
+a:hover {
     color: white;
 }
 .navi span{

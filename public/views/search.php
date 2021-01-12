@@ -14,17 +14,29 @@
             <!--Temporarily-->
             UpTive
         </div>
-        <div class="add-activity">
-            <i class="fas fa-plus-circle"></i>
-            ADD ACTIVITY
+        <a href="http://localhost:8080/addActivity" class="button">
+            <div class="add-activity">
+                <i class="fas fa-plus-circle"></i>
+                ADD ACTIVITY
+            </div>
+        </a>
+        <div class="navi">
+            <a href="http://localhost:8080/home" class="button">
+                HOME
+            </a>
         </div>
-        <div class="navi">HOME</div>
-        <div class="navi">SEARCH</div>
+        <div class="navi">
+            <a href="#" class="button">
+                <span>SEARCH</span>
+            </a>
+        </div>
         <div class="navi">FRIENDS</div>
         <div class="navi-icons">
             <i class="fas fa-cog"></i>
             <i class="far fa-bell"></i>
-            <i class="fas fa-sign-out-alt"></i>
+            <a href="http://localhost:8080/login" class="button">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </div>
 
         <div class="avatar-container">
