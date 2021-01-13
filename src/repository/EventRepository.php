@@ -68,7 +68,7 @@ class EventRepository extends Repository
         );
 
 
-        $help_stat->execute();
+        $help_stat->execute([$event->getActivity()]);
         $idActivity = $help_stat->fetch(PDO::FETCH_ASSOC);
 
         //TODO Pobrać na podstawie sesji

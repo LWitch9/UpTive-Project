@@ -172,7 +172,7 @@
                         <input type="time" id="time" name="time" required>
                     </div>
                     <div class="title-label">OPTIONAL</div>
-                    <textarea name="about" id="about" cols='50' rows='10'></textarea>
+                    <textarea name="about" id="about" cols='50' rows='10' ></textarea>
 
 
                     <button>ADD ACTIVITY</button>

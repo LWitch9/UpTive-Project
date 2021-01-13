@@ -108,6 +108,22 @@ ul>li>i{
     border: solid 0.15em #222E58;
 
 }
+.respond-container{
+    display: flex;
+    flex-direction:row;
+
+
+}
+.respond-container>button{
+    border-radius: 0em;
+    width:5em;
+    height:3.5em;
+    margin: 0 0.2em;
+    padding:0;
+}
+.respond-container>.avatar_event{
+    margin-left: 0.2em;
+}
 .icons{
     color:#222E58;
     display: flex;
@@ -158,7 +174,7 @@ ul>li>i{
     border: solid 0.2em #222E58;
 }
 .event_search_labels{
-    font-size: 1.7em;
+    font-size: 1.2em;
 }
 .message-container{
     border-radius: 25px;
@@ -168,8 +184,9 @@ ul>li>i{
     text-overflow: ellipsis;
     overflow: hidden;
     padding:0.5em 1em;
-    height:6em;
-    width:18em;
+    margin: 0 1.5em;
+    height:4em;
+    width:14em;
 }
 @media only screen and (max-device-width: 420px){
     *{

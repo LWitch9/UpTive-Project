@@ -3,39 +3,29 @@
 
 class User
 {
-    private $name;
-    private $surname;
     private $email;
     private $password;
 
+    private $name;
+    private $surname;
+    private $bio;
+    private $avatar;
 
-    public function __construct(string $name, string $surname, string $email, string $password)
+    /**
+     * User constructor.
+     * @param $email
+     * @param $password
+     * @param $name
+     * @param $surname
+     */
+    public function __construct($email, $password, $name, $surname)
     {
-        $this->name = $name;
-        $this->surname = $surname;
         $this->email = $email;
         $this->password = $password;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
         $this->name = $name;
-    }
-
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
-
-    public function setSurname(string $surname): void
-    {
         $this->surname = $surname;
     }
+
 
     public function getEmail(): string
     {
@@ -58,5 +48,43 @@ class User
         $this->password = $password;
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
 
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    public function setSurname($surname): void
+    {
+        $this->surname = $surname;
+    }
+
+    public function getBio()
+    {
+        return $this->bio;
+    }
+
+    public function setBio($bio): void
+    {
+        $this->bio = $bio;
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar): void
+    {
+        $this->avatar = $avatar;
+    }
 }

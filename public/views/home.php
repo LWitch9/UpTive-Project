@@ -149,6 +149,14 @@
                             <li><i class="far fa-clock"></i></li>
                         </ul>
                         <div class="status">Waiting for response</div>
+                        <div class="respond-container">
+                            <button>reject</button>
+                            <button>accept</button>
+                            <div class="avatar_event">
+                                <img src="public/img/basic.jpg" alt="Avatar">
+                            </div>
+                        </div>
+
                         <div class="icons">
                             <i class="far fa-edit"></i>
                             <i class="far fa-comment-alt"></i>

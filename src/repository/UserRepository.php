@@ -8,7 +8,8 @@ class UserRepository extends Repository
     {
         //Polecenie pobrania danych z bazy
         $statement = $this->database->connect()->prepare(
-            'SELECT * FROM public.users WHERE email = :email'
+            'select * FROM view_users_with_details 
+                        where email = :email;'
         );
         //przypisanie danej :email z bazy do zmiennej $email
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
@@ -23,19 +24,27 @@ class UserRepository extends Repository
         }
 
         return new User(
-            $user['name'], //Change user structure (replace one username with two name and surname)
-            $user['surname'],
           $user['email'],
-          $user['password']
+          $user['password'],
+          $user['name'],
+          $user['surname']
 
         );
     }
     public function addUser(array $data){
-        $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.users (name, surname, email, password) VALUES(:name,:surname,:email,:password);"
+        //TODO dodaj jakąś transakcje/funkcje /procedure do dodawania
+
+        $help = $this->database->connect()->prepare(
+            "SELECT add_return_id_user_details(?,?);"
         );
 
 
-        $statement->execute($data);
+        $help->execute([$data['name'],$data['surname']]);
+        $userDetails =$help->fetch(PDO::FETCH_ASSOC);
+
+        $statement = $this->database->connect()->prepare(
+            "INSERT INTO public.users (email, password, id_user_details) VALUES(?,?,?);"
+        );
+        $statement->execute([$data['email'],$data['password'] ,$userDetails['add_return_id_user_details']]);
     }
 }

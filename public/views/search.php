@@ -102,7 +102,7 @@
                         </ul>
                     </div>
                     <div class="message-container">
-
+                        <?= $event->getMessage() ?>
                     </div>
                     <form>
                         <button>REQUEST</button>
