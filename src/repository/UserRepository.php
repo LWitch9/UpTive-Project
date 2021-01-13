@@ -31,6 +31,27 @@ class UserRepository extends Repository
 
         );
     }
+    public function getUserId(string $email): ?int
+    {
+        //Polecenie pobrania danych z bazy
+        $statement = $this->database->connect()->prepare(
+            'select * FROM public.users 
+                        where email = :email;'
+        );
+        //przypisanie danej :email z bazy do zmiennej $email
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if($user == false){
+            //Przypadek kiedy użytkownik nie zostanie znaleźiony (zamiast tablicy asocjacyjnej zawiera false)
+            //TODO zrobić exception który zostanie rzucony w tym przypadku
+            return null;
+        }
+
+        return $user['id'];
+    }
     public function addUser(array $data){
         //TODO dodaj jakąś transakcje/funkcje /procedure do dodawania
 

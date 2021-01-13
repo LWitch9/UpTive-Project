@@ -10,6 +10,7 @@ Routing::get('home','DefaultController');
 Routing::get('profile','DefaultController');
 Routing::get('addActivity','DefaultController');
 Routing::get('search','EventController');
+Routing::get('logout','SecurityController');
 Routing::post('login','SecurityController');
 Routing::post('signup','SecurityController');
 Routing::post('addEvent','EventController');

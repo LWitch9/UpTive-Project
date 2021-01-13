@@ -53,6 +53,7 @@ class EventRepository extends Repository
 
         $date = new DateTime();
         $activityRepo = new ActivityRepository();
+        $userRepo = new UserRepository();
 
 
          $statement = $this->database->connect()->prepare(
@@ -72,7 +73,7 @@ class EventRepository extends Repository
         $idActivity = $help_stat->fetch(PDO::FETCH_ASSOC);
 
         //TODO Pobrać na podstawie sesji
-        $assignedById = 1;
+        $assignedById = $userRepo->getUserId($_COOKIE["user"]);
         $statement->execute([
             $assignedById,
             $event->getLocation(),

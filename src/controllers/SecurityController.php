@@ -44,12 +44,26 @@ class SecurityController extends AppController
         //Jezeli istnieje przejdz na strone home
         //return $this->render('home');     //Alternatywnie przejscie na strone home
 
+        //TODO Checking role of user + maybe assign cookie somewhere else
+        $cookie_name = 'user';
+        $cookie_value = $_POST["email"];
+        setcookie($cookie_name, $cookie_value, time() + 3600*24*30, '/'); //expires after 30 day
+
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
     }
 
+    public function logout(){
+        if(isset($_COOKIE['user'])){
+            setcookie('user', "", time() - 3600, '/');
+        }
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/login");
+
+    }
     public function signup(){
-        //TODO it's temporarily here
 
         //Weryfikacja metody post/get
         if ( !$this->isPost() ){
