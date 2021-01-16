@@ -227,6 +227,16 @@ a:hover {
     font-size: 2em;
     padding: 0.5em 0.5em;
 }
+.navi-icons button{
+    background: none;
+    max-width:4em;
+
+}
+.navi-icons button>i{
+    color: #FFFFFF;
+    font-size: 2em;
+    padding: 0.5em 0.5em;
+}
 a>i{
     color: #FFFFFF;
     font-size: 2em;

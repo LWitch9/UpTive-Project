@@ -41,16 +41,21 @@ if(!isset($_COOKIE['user'])){
         <div class="navi">FRIENDS</div>
         <div class="navi-icons">
             <i class="fas fa-cog"></i>
-            <i class="far fa-bell"></i>
-            <a href="http://localhost:8080/login" class="button">
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
+            <i class="far fa-bell" ></i>
+            <form id ="logout" action="logout" method="GET">
+                <button >
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
+
         </div>
 
         <div class="avatar-container">
-            <div class="avatar">
-                <img src="public/img/basic.jpg" alt="Avatar">
-            </div>
+            <a href="#" class="button">
+                <div class="avatar">
+                    <img src="public/img/basic.jpg" alt="Avatar">
+                </div>
+            </a>
             <br><br><br>
             Name Surname
         </div>

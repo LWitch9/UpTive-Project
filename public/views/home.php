@@ -51,9 +51,11 @@ if(!isset($_COOKIE['user'])){
             </div>
 
             <div class="avatar-container">
-                <div class="avatar">
-                    <img src="public/img/basic.jpg" alt="Avatar">
-                </div>
+                <a href="http://localhost:8080/profile" class="button">
+                    <div class="avatar">
+                        <img src="public/img/basic.jpg" alt="Avatar">
+                    </div>
+                </a>
                 <br><br><br>
                 Name Surname
             </div>
