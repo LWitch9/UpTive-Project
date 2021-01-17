@@ -92,8 +92,11 @@ if(!isset($_COOKIE['user'])){
         <main-content>
             <div class="events-container">
                 <?php foreach ($events as $event):?>
+                <form id ="request" action="request" method="POST">
                 <div class="event">
-                <div class="squared-avatar">
+                    <input type=hidden name=eventID value=<?= $event['id']?> >
+                    <input type=hidden name=ownerEmail value=<?= $event['owner']->getEmail() ?> >
+                    <div class="squared-avatar">
                         <img src="public/img/avatars/<?= $event['owner']->getAvatar() ?>.jpg" alt="Avatar">
                         <?= $event['owner']->getName() ." ".$event['owner']->getSurname()?>
                     </div>
@@ -101,27 +104,26 @@ if(!isset($_COOKIE['user'])){
                     <div class="avatars-container">
                         <div class="number"></div>
                         <?php foreach ($event['participants'] as $participant):?>
-                        <div class="avatar_event">
-                            <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
-                        </div>
+                            <div class="avatar_event">
+                                <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
+                            </div>
                         <?php endforeach; ?>
                     </div>
                     <div class="event_search_labels">
                         <ul>
-                            <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?> </li>
-                            <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation()?>  </li>
-                            <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?> </li>
-                            <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?> </li>
+                            <li id="activity"><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?> </li>
+                            <li id="location"><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation()?>  </li>
+                            <li id="date"> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?> </li>
+                            <li id="time"><i class="far fa-clock"></i><?= $event['event']->getTime() ?> </li>
                         </ul>
                     </div>
                     <div class="message-container">
                         <?= $event['event']->getMessage() ?>
                     </div>
-                    <form>
-                        <button>REQUEST</button>
-                    </form>
 
+                        <button>REQUEST</button>
                 </div>
+                </form>
                 <?php endforeach; ?>
             </div>
 

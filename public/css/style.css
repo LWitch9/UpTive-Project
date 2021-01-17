@@ -93,7 +93,7 @@ Add sth between buttons login sign up (line or)
 TODO
 button, input - change text size/font
 */
-button{
+ button{
     background: #222E58 0% 0% no-repeat padding-box;
     width:120%;
     line-height: 3.5em;

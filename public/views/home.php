@@ -147,101 +147,45 @@ if(!isset($_COOKIE['user'])){
                 <div class="title-label">IN PROGRESS</div>
                 <div class="events-container">
                     <i class="fas fa-chevron-left"></i>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i></li>
-                            <li><i class="fas fa-map-marker-alt"></i></li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="respond-container">
-                            <form id="respond" action="respond" method="POST">
-                                <button>reject</button>
-                                <button>accept</button>
-                            </form>
+                    <?php foreach ($events as $event):?>
 
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
+                        <div class="event">
+                            <div class="avatars-container">
+                                <div class="number"></div>
+                                <?php foreach ($event['participants'] as $participant):?>
+                                    <div class="avatar_event">
+                                        <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?></li>
+                                <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation() ?></li>
+                                <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?></li>
+                                <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?></li>
+                            </ul>
+                            <div class="status">Waiting for response</div>
+                            <?php
+                            if($event['request']!=null):
+                            ?>
+                            <div class="respond-container">
+                                <form id="respond" action="respond" method="POST">
+                                    <button>reject</button>
+                                    <button>accept</button>
+                                </form>
+                                <div class="avatar_event">
+                                    <img src="public/img/avatars/<?= $event['request']->getAvatar() ?>.jpg" alt="Avatar">
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                            <div class="icons">
+                                <i class="far fa-edit"></i>
+                                <i class="far fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-h"></i>
+                                <i class="far fa-times-circle"></i>
                             </div>
                         </div>
-
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     <i class="fas fa-chevron-right"></i>
                 </div>
                 <div class="title-label">RECOMMENDED</div>

@@ -2,6 +2,7 @@
 require_once "Repository.php";
 require_once "UserRepository.php";
 require_once __DIR__.'/../models/Event.php';
+require_once __DIR__.'/../models/User.php';
 
 class EventRepository extends Repository
 {
@@ -103,7 +104,9 @@ class EventRepository extends Repository
                 $event['date'],
                 $event['time'],
                 $event['message']
-                ), 'owner'=>
+                ),
+                'id'=> $event['id'],
+                'owner'=>
                 $userRepo->getUser($event['email']),
                 'participants'=>
                     $participants = $this->getParticipants($event['id'])
@@ -134,7 +137,9 @@ class EventRepository extends Repository
                 ), 'owner'=>
                 $userRepo->getUser($event['email']),
                 'participants'=>
-                    $participants = $this->getParticipants($event['id'])
+                    $participants = $this->getParticipants($event['id']),
+                'request'=>
+                    $request = $this->getRequestUser($event['id'])
             ];
         }
         return $result;
@@ -146,11 +151,12 @@ class EventRepository extends Repository
         $statement = $this->database->connect()->prepare(
             "SELECT
                         public.users_events_participants.id_event as id_event,
+                        public.users_events_participants.added as added,
                         public.users.email as email
                     FROM public.users_events_participants
                              JOIN public.users
                                   ON public.users_events_participants.id_user = public.users.id
-                    WHERE id_event = ?;"
+                    WHERE id_event = ? AND added = true;"
         );
 
         $statement->execute([$id]);
@@ -161,4 +167,47 @@ class EventRepository extends Repository
         }
         return $result;
     }
+    public function getRequestUser(int $id) : ?User{
+        $userRepo = new UserRepository();
+        $result = [];
+
+        $statement = $this->database->connect()->prepare(
+            "SELECT
+                        public.users_events_participants.id_event as id_event,
+                        public.users_events_participants.added as added,
+                        public.users.email as email
+                    FROM public.users_events_participants
+                             JOIN public.users
+                                  ON public.users_events_participants.id_user = public.users.id
+                    WHERE id_event = ? AND added = false;"
+        );
+
+        $statement->execute([$id]);
+        $participant = $statement->fetch(PDO::FETCH_ASSOC);
+        if($participant == false){
+            return null;
+        }
+        return $userRepo->getUser($participant['email']);
+    }
+    public function getEventIdByData(string $assigned_by, string $location, string $date,string $time): ?Event
+    {
+        $statement = $this->database->connect()->prepare(
+            "SELECT id FROM events 
+                        where (location = ? AND date = ? AND time = ? AND id_assigned_by = ?);"
+        );
+
+        $statement->execute([$this->date,$this->date,$this->time]);
+        $events = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function addRequestParticipant(int $userID, int $eventID){
+        $statement = $this->database->connect()->prepare(
+            "INSERT INTO public.users_events_participants (id_user,id_event, added) 
+                    VALUES(?,?,false);"
+        );
+        $statement->execute([
+            $userID,
+            $eventID
+        ]);
+    }
+
 }

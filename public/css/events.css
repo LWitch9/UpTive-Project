@@ -60,6 +60,7 @@ ul>li>i{
     padding-right: 0.5em;
 
 }
+
 .status{
     background: #222E5852 0% 0% no-repeat padding-box;
     border-radius: 51px;
@@ -114,6 +115,11 @@ ul>li>i{
 
 
 }
+.event button{
+    max-width: 10em;
+
+}
+
 .respond-container>button{
     border-radius: 0em;
     width:5em;

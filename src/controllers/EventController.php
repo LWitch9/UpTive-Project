@@ -18,6 +18,10 @@ class EventController extends AppController
         $events = $this->eventRepository->getEvents();
         $this->render('search',['events'=>$events]);
     }
+    public function home(){
+        $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
+        $this->render('home',['events'=>$events]);
+    }
     public function addEvent(){
         if(!$this->isPost())
             $this->render('addActivity');
@@ -29,7 +33,24 @@ class EventController extends AppController
         header("Location:{$url}/profile");
     }
 
-    public function getEventsOfUser(){
+    public function request(){
+
+        $userRepo = new UserRepository();
+        if ( !$this->isPost() ){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location:{$url}/search");
+        }
+
+        $eventID = $_POST["eventID"];
+        $participantID= $userRepo->getUserId($_COOKIE['user']);
+
+        //TODO user cannot request to his event
+        //TODO obsłużenie błędu ( jeżeli już taki request jest / jeżeli już taki user został dodany)
+        $this->eventRepository->addRequestParticipant( $participantID, $eventID);
+
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/search");
 
     }
 

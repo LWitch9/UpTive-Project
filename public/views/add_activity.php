@@ -147,15 +147,7 @@ if(!isset($_COOKIE['user'])){
 
 
                 <form id="addEvent" action="addEvent" method="POST">
-                    <div class="message">
-                        <?php
-                        if(isset($messages) && !isset($signup)){
-                            foreach ($messages as $message){
-                                echo $message;
-                            }
-                        }
-                        ?>
-                    </div>
+
                     <div class="title-label">BASICS</div>
                     <div class="form-container">
                         <select id="activity" name="activity" required>
