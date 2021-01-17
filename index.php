@@ -7,7 +7,7 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('','DefaultController');
 Routing::get('home','DefaultController');
-Routing::get('profile','DefaultController');
+Routing::get('profile','ProfileController');
 Routing::get('addActivity','DefaultController');
 Routing::get('search','EventController');
 Routing::get('logout','SecurityController');

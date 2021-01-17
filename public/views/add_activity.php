@@ -45,7 +45,7 @@ if(!isset($_COOKIE['user'])){
             <form id ="logout" action="logout" method="GET">
                 <button class="navi-icon" >
                     <i class="fas fa-sign-out-alt"></i>
-                </button
+                </button>
             </form>
 
         </div>
@@ -146,7 +146,7 @@ if(!isset($_COOKIE['user'])){
         <main-content>
 
 
-                <form action="addEvent" method="POST">
+                <form id="addEvent" action="addEvent" method="POST">
                     <div class="message">
                         <?php
                         if(isset($messages) && !isset($signup)){

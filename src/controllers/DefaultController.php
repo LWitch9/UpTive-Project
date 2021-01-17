@@ -11,9 +11,6 @@
              $this->render('home');
         }
 
-        public function profile(){
-            $this->render('profile');
-        }
         public function addActivity(){
             $this->render('add_activity');
         }

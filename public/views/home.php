@@ -162,8 +162,11 @@ if(!isset($_COOKIE['user'])){
                         </ul>
                         <div class="status">Waiting for response</div>
                         <div class="respond-container">
-                            <button>reject</button>
-                            <button>accept</button>
+                            <form id="respond" action="respond" method="POST">
+                                <button>reject</button>
+                                <button>accept</button>
+                            </form>
+
                             <div class="avatar_event">
                                 <img src="public/img/basic.jpg" alt="Avatar">
                             </div>

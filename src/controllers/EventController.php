@@ -25,7 +25,8 @@ class EventController extends AppController
         $event = new Event($_POST['activity'], $_POST['location'],$_POST['date'], $_POST['time'], $_POST['about']);
         $this->eventRepository->addEvent($event);
 
-        return $this->render('profile',['event'=>$event]);
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/profile");
     }
 
     public function getEventsOfUser(){

@@ -96,6 +96,11 @@ class SecurityController extends AppController
             'email' => $email,
             'password' => $password
         ]);
+
+        $cookie_name = 'user';
+        $cookie_value = $_POST["email"];
+        setcookie($cookie_name, $cookie_value, time() + 3600*24*30, '/'); //expires after 30 day
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
 

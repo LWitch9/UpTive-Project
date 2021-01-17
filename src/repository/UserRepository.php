@@ -1,6 +1,7 @@
 <?php
 require_once "Repository.php";
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/Achievement.php';
 
 class UserRepository extends Repository
 {
@@ -27,7 +28,9 @@ class UserRepository extends Repository
           $user['email'],
           $user['password'],
           $user['name'],
-          $user['surname']
+          $user['surname'],
+          $user['bio'],
+          $user['avatar']
 
         );
     }
@@ -67,5 +70,48 @@ class UserRepository extends Repository
             "INSERT INTO public.users (email, password, id_user_details) VALUES(?,?,?);"
         );
         $statement->execute([$data['email'],$data['password'] ,$userDetails['add_return_id_user_details']]);
+    }
+    public function getUserActivities(string $email): array{
+
+        $result = [];
+
+        $statement = $this->database->connect()->prepare(
+            'SELECT activity_name FROM view_users_activities  
+                        where email = :email;'
+        );
+
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        $activities = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($activities as $activity){
+            $result[] = $activity['activity_name'];
+        }
+
+        return $result;
+    }
+    public function getUserAchievements(string $email): array{
+        $result = [];
+
+        $statement = $this->database->connect()->prepare(
+            'SELECT title, text, img FROM view_users_achievements  
+                        where email = :email;'
+        );
+
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        $achievements = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($achievements as $achievement){
+            $result[] = new Achievement(
+                $achievement['title'],
+                $achievement['text'],
+                $achievement['img']
+            );
+        }
+
+        return $result;
     }
 }

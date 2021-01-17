@@ -146,10 +146,10 @@ if(!isset($_COOKIE['user'])){
         <main-content-profile>
             <left-main>
                 <div class="avatar-profile">
-                    <img src="public/img/basic.jpg" alt="Avatar">
+                    <img src="public/img/<?= $user->getAvatar()?>.jpg" alt="Avatar">
                 </div>
                 <br>
-                <h>Name Surname</h>
+                <h><?= $user->getName() ." ".$user->getSurname()?></h>
                 <div class="socials">
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-instagram"></i>
@@ -158,8 +158,7 @@ if(!isset($_COOKIE['user'])){
                 </div>
                 <div class="title-label">BIO</div>
                 <div class="bio-text">
-                    Just some text that will be hereeeee.Just some text that will be hereeeee.
-                    Just some text that will be hereeeee.Just some text that will be hereeeee.
+                    <?= $user->getBio()?>
 
                 </div>
 
@@ -174,10 +173,10 @@ if(!isset($_COOKIE['user'])){
                             </div>
                         </div>
                         <ul>
-                            <li><i class="fas fa-swimmer"></i><?= $event->getActivity() ?> </li>
-                            <li><i class="fas fa-map-marker-alt"></i><?= $event->getLocation()?>  </li>
-                            <li> <i class="far fa-calendar-alt"></i><?= $event->getDate() ?> </li>
-                            <li><i class="far fa-clock"></i><?= $event->getTime() ?> </li>
+                            <li><i class="fas fa-swimmer"></i></li>
+                            <li><i class="fas fa-map-marker-alt"></i></li>
+                            <li> <i class="far fa-calendar-alt"></i></li>
+                            <li><i class="far fa-clock"></i></li>
                         </ul>
                         <div class="status">Waiting for response</div>
                         <div class="icons">
@@ -213,32 +212,32 @@ if(!isset($_COOKIE['user'])){
             </left-main>
             <right-main>
                 <div class="title-label">ACTIVITIES</div>
-                <div class="activity-container">
-                    <i class="fas fa-swimmer"></i>
-                    <div class="activity">
-
-                    </div>
-                    <div class="activity-level"></div>
-                </div>
-                <i class="fas fa-plus-square"></i>
-                <div class="title-label">ACHIEVEMENTS</div>
-                <div class="achievement-container">
-                    <div class="achievement-text-container">
-                        <div class="achievement-title">Some title</div>
-                        <div class="achievement-text">
-                            Just some text that will be hereeeee.Just some text that will be hereeeee.
-                            Just some text that will be hereeeee.Just some text that will be hereeeee.
-                            Just some text that will be hereeeee.Just some text that will be hereeeee.
-                            Just some text that will be hereeeee.Just some text that will be hereeeee.
-                            Just some text that will be hereeeee.Just some text that will be hereeeee.
+                <?php foreach ($activities as $activity):?>
+                    <div class="activity-container">
+                        <i class="fas fa-swimmer"></i>
+                        <div class="activity">
+                            <?= $activity ?>
                         </div>
+                        <div class="activity-level"></div>
+                    </div>
+                <?php endforeach; ?>
+                    <!--<i class="fas fa-plus-square"></i>-->
+                <div class="title-label">ACHIEVEMENTS</div>
+                <?php foreach ($achievements as $achievement):?>
+                    <div class="achievement-container">
+                        <div class="achievement-text-container">
+                            <div class="achievement-title"><?= $achievement->getTitle() ?></div>
+                            <div class="achievement-text">
+                                <?= $achievement->getText() ?>
+                            </div>
 
+                        </div>
+                        <div class="avatar">
+                            <img src="public/img/achievements/<?= $achievement->getImg() ?>.jpg" alt="Avatar">
+                        </div>
                     </div>
-                    <div class="avatar">
-                        <img src="public/img/basic.jpg" alt="Avatar">
-                    </div>
-                </div>
-                <i class="fas fa-plus-square"></i>
+                <?php endforeach; ?>
+                <!--<i class="fas fa-plus-square"></i>-->
             </right-main>
         </main-content-profile>
 

@@ -11,19 +11,14 @@ class User
     private $bio;
     private $avatar;
 
-    /**
-     * User constructor.
-     * @param $email
-     * @param $password
-     * @param $name
-     * @param $surname
-     */
-    public function __construct($email, $password, $name, $surname)
+    public function __construct($email, $password, $name, $surname, $bio=null, $avatar=null)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
+        $this->bio = $bio;
+        $this->avatar = $avatar;
     }
 
 
