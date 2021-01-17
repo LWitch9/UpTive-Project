@@ -134,7 +134,8 @@ class EventRepository extends Repository
                     $event['date'],
                     $event['time'],
                     $event['message']
-                ), 'owner'=>
+                ), 'id'=> $event['id'],
+                'owner'=>
                 $userRepo->getUser($event['email']),
                 'participants'=>
                     $participants = $this->getParticipants($event['id']),
@@ -209,5 +210,25 @@ class EventRepository extends Repository
             $eventID
         ]);
     }
-
+    public function addParticipant(int $userID, int $eventID){
+        $statement = $this->database->connect()->prepare(
+            "UPDATE public.users_events_participants 
+                    SET added = true
+                    WHERE id_user = ? AND id_event = ?;"
+        );
+        $statement->execute([
+            $userID,
+            $eventID
+        ]);
+    }
+    public function RemoveParticipant(int $userID, int $eventID){
+        $statement = $this->database->connect()->prepare(
+            "DELETE FROM public.users_events_participants
+                    WHERE id_user = ? AND id_event = ?;"
+        );
+        $statement->execute([
+            $userID,
+            $eventID
+        ]);
+    }
 }

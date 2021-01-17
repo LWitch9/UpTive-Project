@@ -19,8 +19,14 @@ class EventController extends AppController
         $this->render('search',['events'=>$events]);
     }
     public function home(){
-        $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
-        $this->render('home',['events'=>$events]);
+        if (!isset($_COOKIE['user'])){
+            $this->render('login');
+        }
+        else{
+            $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
+            $this->render('home',['events'=>$events]);
+        }
+
     }
     public function addEvent(){
         if(!$this->isPost())
@@ -54,4 +60,37 @@ class EventController extends AppController
 
     }
 
+    public function accept(){
+        $userRepo = new UserRepository();
+        if ( !$this->isPost() ){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location:{$url}/home");
+        }
+
+        $participantID= $userRepo->getUserId($_POST['requestEmail']);
+        $eventID = $_POST["eventID"];
+
+        $this->eventRepository->addParticipant( $participantID, $eventID);
+
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/home");
+
+    }
+    public function reject(){
+        $userRepo = new UserRepository();
+        if ( !$this->isPost() ){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location:{$url}/home");
+        }
+
+        $participantID= $userRepo->getUserId($_POST['requestEmail']);
+        $eventID = $_POST["eventID"];
+
+        $this->eventRepository->removeParticipant( $participantID, $eventID);
+
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location:{$url}/home");
+    }
 }

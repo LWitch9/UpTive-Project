@@ -170,7 +170,9 @@ if(!isset($_COOKIE['user'])){
 
                     <div class="event">
                         <div class="avatars-container">
-                            <div class="number"></div>
+                            <?php if(!$event['participants']): ?>
+                                <div class="number">0</div>
+                            <?php endif ?>
                             <?php foreach ($event['participants'] as $participant):?>
                                 <div class="avatar_event">
                                     <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">

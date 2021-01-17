@@ -45,7 +45,7 @@ if(!isset($_COOKIE['user'])){
                 <form id ="logout" action="logout" method="GET">
                     <button >
                         <i class="fas fa-sign-out-alt"></i>
-                    </button
+                    </button>
                 </form>
 
             </div>
@@ -151,7 +151,9 @@ if(!isset($_COOKIE['user'])){
 
                         <div class="event">
                             <div class="avatars-container">
-                                <div class="number"></div>
+                                <?php if(!$event['participants']): ?>
+                                    <div class="number">0</div>
+                                <?php endif ?>
                                 <?php foreach ($event['participants'] as $participant):?>
                                     <div class="avatar_event">
                                         <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
@@ -169,9 +171,16 @@ if(!isset($_COOKIE['user'])){
                             if($event['request']!=null):
                             ?>
                             <div class="respond-container">
-                                <form id="respond" action="respond" method="POST">
+                                <form id="reject" action="reject" method="POST">
+                                    <input type=hidden name=eventID value=<?= $event['id']?> >
+                                    <input type=hidden name=requestEmail value=<?= $event['request']->getEmail() ?> >
                                     <button>reject</button>
+                                </form>
+                                <form id="accept" action="accept" method="POST">
+                                    <input type=hidden name=eventID value=<?= $event['id']?> >
+                                    <input type=hidden name=requestEmail value=<?= $event['request']->getEmail() ?> >
                                     <button>accept</button>
+
                                 </form>
                                 <div class="avatar_event">
                                     <img src="public/img/avatars/<?= $event['request']->getAvatar() ?>.jpg" alt="Avatar">

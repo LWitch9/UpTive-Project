@@ -15,6 +15,8 @@ Routing::post('login','SecurityController');
 Routing::post('signup','SecurityController');
 Routing::post('addEvent','EventController');
 Routing::post('request','EventController');
+Routing::post('reject','EventController');
+Routing::post('accept','EventController');
 
 Routing::run($path);
 
