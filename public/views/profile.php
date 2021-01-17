@@ -145,8 +145,9 @@ if(!isset($_COOKIE['user'])){
         </left-bar>
         <main-content-profile>
             <left-main>
+
                 <div class="avatar-profile">
-                    <img src="public/img/<?= $user->getAvatar()?>.jpg" alt="Avatar">
+                    <img src="public/img/avatars/<?= $user->getAvatar()?>.jpg" alt="Avatar">
                 </div>
                 <br>
                 <h><?= $user->getName() ." ".$user->getSurname()?></h>
@@ -165,18 +166,22 @@ if(!isset($_COOKIE['user'])){
                 <div class="title-label">CURRENT ACTIVITIES</div>
                 <div class="events-container">
                     <i class="fas fa-chevron-left"></i>
+                    <?php foreach ($events as $event):?>
+
                     <div class="event">
                         <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
+                            <div class="number"></div>
+                            <?php foreach ($event['participants'] as $participant):?>
+                                <div class="avatar_event">
+                                    <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                         <ul>
-                            <li><i class="fas fa-swimmer"></i></li>
-                            <li><i class="fas fa-map-marker-alt"></i></li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
+                            <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?></li>
+                            <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation() ?></li>
+                            <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?></li>
+                            <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?></li>
                         </ul>
                         <div class="status">Waiting for response</div>
                         <div class="icons">
@@ -186,27 +191,7 @@ if(!isset($_COOKIE['user'])){
                             <i class="far fa-times-circle"></i>
                         </div>
                     </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </left-main>

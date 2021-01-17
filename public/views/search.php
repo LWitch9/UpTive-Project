@@ -94,15 +94,17 @@ if(!isset($_COOKIE['user'])){
                 <?php foreach ($events as $event):?>
                 <div class="event">
                 <div class="squared-avatar">
-                        <img src="public/img/avatars/<?= $event['owner']->getName() ?>.jpg" alt="Avatar">
+                        <img src="public/img/avatars/<?= $event['owner']->getAvatar() ?>.jpg" alt="Avatar">
                         <?= $event['owner']->getName() ." ".$event['owner']->getSurname()?>
                     </div>
 
                     <div class="avatars-container">
-                        <div class="number">+2</div>
+                        <div class="number"></div>
+                        <?php foreach ($event['participants'] as $participant):?>
                         <div class="avatar_event">
-                            <img src="public/img/basic.jpg" alt="Avatar">
+                            <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
                         </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="event_search_labels">
                         <ul>
