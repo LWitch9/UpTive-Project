@@ -1,23 +1,24 @@
 <?php
 
-
 class Event
 {
+
     private $activity;
     private $location;
     private $date;
     private $time;
     private $message;
 
-
     public function __construct($activity, $location, $date, $time, $message)
     {
+
         $this->activity = $activity;
         $this->location = $location;
         $this->date = $date;
         $this->time = $time;
         $this->message = $message;
     }
+
 
     public function getActivity()
     {

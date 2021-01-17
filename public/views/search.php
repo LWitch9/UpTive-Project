@@ -93,10 +93,9 @@ if(!isset($_COOKIE['user'])){
             <div class="events-container">
                 <?php foreach ($events as $event):?>
                 <div class="event">
-
-                    <div class="squared-avatar">
-                        <img src="public/img/basic.jpg" alt="Avatar">
-                        Name Surname
+                <div class="squared-avatar">
+                        <img src="public/img/avatars/<?= $event['owner']->getName() ?>.jpg" alt="Avatar">
+                        <?= $event['owner']->getName() ." ".$event['owner']->getSurname()?>
                     </div>
 
                     <div class="avatars-container">
@@ -107,14 +106,14 @@ if(!isset($_COOKIE['user'])){
                     </div>
                     <div class="event_search_labels">
                         <ul>
-                            <li><i class="fas fa-swimmer"></i><?= $event->getActivity() ?> </li>
-                            <li><i class="fas fa-map-marker-alt"></i><?= $event->getLocation()?>  </li>
-                            <li> <i class="far fa-calendar-alt"></i><?= $event->getDate() ?> </li>
-                            <li><i class="far fa-clock"></i><?= $event->getTime() ?> </li>
+                            <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?> </li>
+                            <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation()?>  </li>
+                            <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?> </li>
+                            <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?> </li>
                         </ul>
                     </div>
                     <div class="message-container">
-                        <?= $event->getMessage() ?>
+                        <?= $event['event']->getMessage() ?>
                     </div>
                     <form>
                         <button>REQUEST</button>

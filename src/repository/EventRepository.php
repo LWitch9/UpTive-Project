@@ -1,34 +1,19 @@
 <?php
 require_once "Repository.php";
+require_once "UserRepository.php";
 require_once __DIR__.'/../models/Event.php';
 
 class EventRepository extends Repository
 {
     public function getEvent(int $id): ?Event
     {
+        $userRepo = new UserRepository();
         //TODO end method
         //Polecenie pobrania danych z bazy
         //Statement with all needed data that has to be displayed
         $statement = $this->database->connect()->prepare(
-            "SELECT
-                        public.users_details.name as name,
-                        public.users_details.surname as surname,
-                        public.users_details.bio as bio,
-                        public.users_details.avatar as avatar,
-                        public.events.location as location ,
-                        public.events.date as date ,
-                        public.events.time as time,
-                        public.events.message as message,
-                        public.events.created_at as created_at,
-                        public.activities.name as activity,
-                        public.events.type as type
-                    FROM public.events
-                        JOIN public.activities
-                            ON public.events.id_activity = public.activities.id
-                        JOIN public.users
-                            ON public.events.id_assigned_by = public.users.id
-                        JOIN public.users_details
-                            ON public.users.id_user_details = public.users_details.id"
+
+            "SELECT * FROM view_events WHERE id = :id"
         );
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
@@ -40,6 +25,7 @@ class EventRepository extends Repository
         }
 
         return new Event(
+            $userRepo->getUser($event['email']),
             $event['activity'],
             $event['location'],
             $event['date'],
@@ -88,42 +74,31 @@ class EventRepository extends Repository
     }
     public function getEvents(): array
     {
+        $userRepo = new UserRepository();
         $result = [];
 
         $statement = $this->database->connect()->prepare(
-            "SELECT
-                        public.users_details.name as name,
-                        public.users_details.surname as surname,
-                        public.users_details.bio as bio,
-                        public.users_details.avatar as avatar,
-                        public.events.location as location ,
-                        public.events.date as date ,
-                        public.events.time as time,
-                        public.events.message as message,
-                        public.events.created_at as created_at,
-                        public.activities.name as activity,
-                        public.events.type as type
-                    FROM public.events
-                        JOIN public.activities
-                            ON public.events.id_activity = public.activities.id
-                        JOIN public.users
-                            ON public.events.id_assigned_by = public.users.id
-                        JOIN public.users_details
-                            ON public.users.id_user_details = public.users_details.id"
+            "SELECT * FROM view_events"
         );
 
         $statement->execute();
         $events = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($events as $event){
-            $result[] = new Event(
+            $result[] = ['event'=>
+                new Event(
                 $event['activity'],
                 $event['location'],
                 $event['date'],
                 $event['time'],
                 $event['message']
-            );
+                ), 'owner'=>
+                $userRepo->getUser($event['email'])
+                ];
         }
         return $result;
+    }
+    public function getEventOwnerId(int $id) : ?Event{
+
     }
 }
