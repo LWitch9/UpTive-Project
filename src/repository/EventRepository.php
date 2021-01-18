@@ -190,16 +190,38 @@ class EventRepository extends Repository
         }
         return $userRepo->getUser($participant['email']);
     }
-    public function getEventIdByData(string $assigned_by, string $location, string $date,string $time): ?Event
+    public function getCalendarEvents(string $email) : array
     {
+        $result = [];
+
         $statement = $this->database->connect()->prepare(
-            "SELECT id FROM events 
-                        where (location = ? AND date = ? AND time = ? AND id_assigned_by = ?);"
+            "SELECT *
+                      FROM
+                           (
+                              SELECT * FROM view_events_participants
+                              UNION
+                              SELECT * FROM view_events
+                              ) AS tab
+                      WHERE (email = ? AND (date > ? OR (date = ? AND time > ?)))
+                      ORDER BY date, time;"
         );
 
-        $statement->execute([$this->date,$this->date,$this->time]);
+        $statement->execute([$email,$this->date,$this->date,$this->time]);
         $events = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($events as $event){
+            $result[] = new Event(
+                    $event['activity'],
+                    $event['location'],
+                    $event['date'],
+                    $event['time'],
+                    $event['message']
+            );
+        }
+        return $result;
     }
+
     public function addRequestParticipant(int $userID, int $eventID){
         $statement = $this->database->connect()->prepare(
             "INSERT INTO public.users_events_participants (id_user,id_event, added) 
@@ -221,7 +243,7 @@ class EventRepository extends Repository
             $eventID
         ]);
     }
-    public function RemoveParticipant(int $userID, int $eventID){
+    public function removeParticipant(int $userID, int $eventID){
         $statement = $this->database->connect()->prepare(
             "DELETE FROM public.users_events_participants
                     WHERE id_user = ? AND id_event = ?;"

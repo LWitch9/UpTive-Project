@@ -24,7 +24,8 @@ class EventController extends AppController
         }
         else{
             $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
-            $this->render('home',['events'=>$events]);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $this->render('home',['events'=>$events, 'calendars'=>$calendars]);
         }
 
     }

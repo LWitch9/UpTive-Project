@@ -18,7 +18,9 @@ if(!isset($_COOKIE['user'])){
         <?php include("navigation_bar.php") ?>
         <?php include("upper_navigation_bar_mobile.php") ?>
         <main>
-            <?php include("calendar-bar.php") ?>
+            <left-bar>
+                <?php include("calendar-bar.php") ?>
+            </left-bar>
             <main-content>
                 <div class="title-label">IN PROGRESS</div>
                 <?php include("events-container.php") ?>
