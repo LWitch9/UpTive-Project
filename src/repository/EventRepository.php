@@ -114,7 +114,7 @@ class EventRepository extends Repository
         }
         return $result;
     }
-    public function getUsersEvents(string $email) : array{
+    public function getUserAssignedEvents(string $email) : array{
         $userRepo = new UserRepository();
         $result = [];
 
@@ -143,6 +143,70 @@ class EventRepository extends Repository
                     $request = $this->getRequestUser($event['id'])
             ];
         }
+        return $result;
+    }
+    public function getUserAssignedParticipatedEvents(string $email) : array{
+        $userRepo = new UserRepository();
+        $result = [];
+
+        $statement2 = $this->database->connect()->prepare(
+            "SELECT *
+                        FROM view_events_participants
+                        WHERE (
+                            ( id_assigned_by = ? AND added = false)
+                            AND (date > ? OR (date = ? AND time > ?))
+                        );"
+        );
+        $assignedID = $userRepo->getUserId($email);
+        $statement2->execute([$assignedID,$this->date,$this->date,$this->time]);
+
+        $events_as_owner = $statement2->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($events_as_owner as $event){
+            $result[] = ['event'=>
+                new Event(
+                    $event['activity'],
+                    $event['location'],
+                    $event['date'],
+                    $event['time'],
+                    $event['message']
+                ), 'id'=> $event['id'],
+                'owner'=> $userRepo->getUser($email),
+                'participants'=>
+                    $participants = $this->getParticipants($event['id']),
+                'request'=>
+                    $request = $userRepo->getUser($event['email'])
+            ];
+        }
+
+        $statement = $this->database->connect()->prepare(
+            "SELECT *
+                        FROM view_events_participants
+                        WHERE (
+                            (email = ? AND added = false)
+                            AND (date > ? OR (date = ? AND time > ?))
+                        );"
+        );
+
+        $statement->execute([$email,$this->date,$this->date,$this->time]);
+        $events_as_participant = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($events_as_participant as $event){
+            $result[] = ['event'=>
+                new Event(
+                    $event['activity'],
+                    $event['location'],
+                    $event['date'],
+                    $event['time'],
+                    $event['message']
+                ), 'id'=> $event['id'],
+                'owner'=>
+                    $userRepo->getUserByID($event['id_assigned_by']),
+                'participants'=>
+                    $participants = $this->getParticipants($event['id']),
+
+            ];
+        }
+
         return $result;
     }
     public function getParticipants(int $id) : array{
@@ -196,12 +260,14 @@ class EventRepository extends Repository
 
         $statement = $this->database->connect()->prepare(
             "SELECT *
-                      FROM
-                           (
-                              SELECT * FROM view_events_participants
-                              UNION
-                              SELECT * FROM view_events
-                              ) AS tab
+                      FROM (
+                               SELECT id,email,location,date,time,message,created_at,activity, type
+                               FROM view_events_participants
+                                  WHERE (added = true)
+                               UNION
+                               SELECT *
+                               FROM view_events
+                           ) as tab
                       WHERE (email = ? AND (date > ? OR (date = ? AND time > ?)))
                       ORDER BY date, time;"
         );

@@ -36,11 +36,11 @@
     <div class="avatar-container">
         <a href="http://localhost:8080/profile" class="button">
             <div class="avatar">
-                <img src="public/img/basic.jpg" alt="Avatar">
+                <img src="public/img/avatars/<?= $user->getAvatar() ?>.jpg" alt="Avatar">
             </div>
         </a>
         <br><br><br>
-        Name Surname
+        <?= $user->getName() ." ".$user->getSurname()?>
     </div>
 
 

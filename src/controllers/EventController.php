@@ -8,24 +8,28 @@ class EventController extends AppController
 {
     //private $messages = [];
     private $eventRepository;
+    private $userRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->eventRepository = new EventRepository();
+        $this->userRepository = new UserRepository();
     }
     public function search(){
         $events = $this->eventRepository->getEvents();
-        $this->render('search',['events'=>$events]);
+        $user= $this->userRepository->getUser($_COOKIE['user']);
+        $this->render('search',['user'=>$user, 'events'=>$events]);
     }
     public function home(){
         if (!isset($_COOKIE['user'])){
             $this->render('login');
         }
         else{
-            $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $events = $this->eventRepository->getUserAssignedParticipatedEvents($_COOKIE['user']);
             $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-            $this->render('home',['events'=>$events, 'calendars'=>$calendars]);
+            $this->render('home',['user'=>$user,'events'=>$events, 'calendars'=>$calendars]);
         }
 
     }

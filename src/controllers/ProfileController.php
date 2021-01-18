@@ -20,7 +20,7 @@ class ProfileController extends AppController
         $user= $this->userRepository->getUser($_COOKIE['user']);
         $activities= $this->userRepository->getUserActivities($_COOKIE['user']);
         $achievements= $this->userRepository->getUserAchievements($_COOKIE['user']);
-        $events = $this->eventRepository->getUsersEvents($_COOKIE['user']);
+        $events = $this->eventRepository->getUserAssignedEvents($_COOKIE['user']);
         $this->render('profile',['user'=>$user, 'activities'=>$activities, 'achievements'=>$achievements, 'events'=>$events]);
     }
 }

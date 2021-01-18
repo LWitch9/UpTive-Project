@@ -4,7 +4,9 @@
         <?php foreach ($events as $event):?>
 
             <div class="event">
+
                 <div class="avatars-container">
+
                     <?php if(!$event['participants']): ?>
                         <div class="number">0</div>
                     <?php endif ?>
@@ -13,6 +15,9 @@
                             <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
                         </div>
                     <?php endforeach; ?>
+                    <div class="avatar_event">
+                        <img src="public/img/avatars/<?= $event['owner']->getAvatar() ?>.jpg" alt="Avatar">
+                    </div>
                 </div>
                 <ul>
                     <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?></li>
