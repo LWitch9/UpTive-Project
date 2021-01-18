@@ -19,7 +19,13 @@ class EventController extends AppController
     public function search(){
         $events = $this->eventRepository->getEvents();
         $user= $this->userRepository->getUser($_COOKIE['user']);
-        $this->render('search',['user'=>$user, 'events'=>$events]);
+        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+        $this->render('search',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
+    }
+    public function addActivity(){
+        $user= $this->userRepository->getUser($_COOKIE['user']);
+        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+        $this->render('add_activity',['user'=>$user, 'calendars'=>$calendars]);
     }
     public function home(){
         if (!isset($_COOKIE['user'])){

@@ -1,4 +1,5 @@
 <div class="title-label">CALENDAR</div>
+<?php if(isset($calendars)): ?>
     <?php foreach ($calendars as $calendar):?>
         <div class="calendar">
             <ul>
@@ -10,3 +11,4 @@
             <i class="fas fa-ellipsis-h"></i>
         </div>
     <?php endforeach; ?>
+<?php endif;?>

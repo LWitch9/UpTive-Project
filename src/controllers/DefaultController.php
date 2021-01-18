@@ -7,14 +7,5 @@
             $this->render('login');
         }
 
-        public function home(){
-             $this->render('home');
-        }
-
-        public function addActivity(){
-            $this->render('add_activity');
-        }
-
-
 
     }

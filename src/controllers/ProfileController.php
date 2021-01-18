@@ -21,6 +21,7 @@ class ProfileController extends AppController
         $activities= $this->userRepository->getUserActivities($_COOKIE['user']);
         $achievements= $this->userRepository->getUserAchievements($_COOKIE['user']);
         $events = $this->eventRepository->getUserAssignedEvents($_COOKIE['user']);
-        $this->render('profile',['user'=>$user, 'activities'=>$activities, 'achievements'=>$achievements, 'events'=>$events]);
+        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+        $this->render('profile',['user'=>$user, 'activities'=>$activities, 'achievements'=>$achievements, 'events'=>$events, 'calendars'=>$calendars]);
     }
 }
