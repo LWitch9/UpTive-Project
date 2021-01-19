@@ -10,6 +10,8 @@ if(!isset($_COOKIE['user'])){
     <link rel="stylesheet" type=text/css href="public/css/style.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/profile.css">
+    <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
+    <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>PROFILE PAGE</title>
 </head>
@@ -43,36 +45,50 @@ if(!isset($_COOKIE['user'])){
 
                 <div class="title-label">CURRENT ACTIVITIES</div>
                 <div class="events-container">
-                    <i class="fas fa-chevron-left"></i>
-                    <?php foreach ($events as $event):?>
-
-                    <div class="event">
-                        <div class="avatars-container">
-                            <?php if(!$event['participants']): ?>
-                                <div class="number">0</div>
-                            <?php endif ?>
-                            <?php foreach ($event['participants'] as $participant):?>
-                                <div class="avatar_event">
-                                    <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
-                                </div>
-                            <?php endforeach; ?>
+                    <div class="glide">
+                        <div data-glide-el="track" class="glide__track">
+                            <ul class="glide__slides">
+                                <?php foreach ($events as $event):?>
+                                    <li class="glide__slide">
+                                        <div class="event">
+                                            <div class="avatars-container">
+                                                <?php if(!$event['participants']): ?>
+                                                    <div class="number">0</div>
+                                                <?php endif ?>
+                                                <?php foreach ($event['participants'] as $participant):?>
+                                                    <div class="avatar_event">
+                                                        <img src="public/img/avatars/<?= $participant->getAvatar() ?>.jpg" alt="Avatar">
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                            <ul>
+                                                <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?></li>
+                                                <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation() ?></li>
+                                                <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?></li>
+                                                <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?></li>
+                                            </ul>
+                                            <div class="status">Waiting for response</div>
+                                            <div class="icons">
+                                                <i class="far fa-edit"></i>
+                                                <i class="far fa-comment-alt"></i>
+                                                <i class="fas fa-ellipsis-h"></i>
+                                                <i class="far fa-times-circle"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
                         </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i><?= $event['event']->getActivity() ?></li>
-                            <li><i class="fas fa-map-marker-alt"></i><?= $event['event']->getLocation() ?></li>
-                            <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?></li>
-                            <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?></li>
-                        </ul>
-                        <div class="status">Waiting for response</div>
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                    <i class="fas fa-chevron-right"></i>
+
                 </div>
             </left-main>
             <right-main>
@@ -111,4 +127,6 @@ if(!isset($_COOKIE['user'])){
     <?php include("navigation_bar_mobile.php") ?>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script type="text/javascript" src="public/js/glideProfile.js" ></script>
 </body>

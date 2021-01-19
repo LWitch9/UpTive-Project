@@ -41,7 +41,7 @@ ul{
     margin:0;
     padding: 0 1em;
 }
-ul>li{
+.event ul>li{
     border-bottom: solid 0.1em #222E58;
 
     margin: 1em 0;
@@ -55,6 +55,21 @@ ul>li{
     overflow: hidden;
 
     //margin: 1.3em 0 ;
+}
+.calendar ul>li{
+    border-bottom: solid 0.1em #222E58;
+
+    margin: 1em 0;
+    max-width: 12.5em;
+    min-width: 12.5em;
+
+    color: #222E58;
+    font-size:0.9em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+//margin: 1.3em 0 ;
 }
 ul>li>i{
     padding-right: 0.5em;
@@ -109,6 +124,12 @@ ul>li>i{
     border-radius: 50%;
     border: solid 0.15em #222E58;
 
+
+}
+.event button{
+    max-width: 10em;
+    min-width: 8em;
+
 }
 .respond-container{
     display: flex;
@@ -116,21 +137,20 @@ ul>li>i{
 
 
 }
-.event button{
-    max-width: 10em;
-
-}
-
 .respond-container button{
     border-radius: 0em;
-    width:5em;
-    height:3.5em;
-    margin: 0 0.2em;
-    padding:0;
+    max-width: 5em;
+    min-width: 5em;
+    margin: 0 0.2em 0 0;
+
+
 }
 .respond-container>.avatar_event{
     margin-left: 0.2em;
 }
+
+
+
 .icons{
     color:#222E58;
     display: flex;
@@ -182,6 +202,21 @@ ul>li>i{
 }
 .event_search_labels{
     font-size: 1.2em;
+}
+.event_search_labels ul>li{
+    border-bottom: solid 0.1em #222E58;
+
+    margin: 1em 0;
+    max-width: 12.5em;
+    min-width: 12.5em;
+
+    color: #222E58;
+    font-size:0.9em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+//margin: 1.3em 0 ;
 }
 .message-container{
     border-radius: 25px;

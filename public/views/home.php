@@ -9,6 +9,8 @@ if(!isset($_COOKIE['user'])){
 <head>
     <link rel="stylesheet" type=text/css href="public/css/style.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
+    <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
+    <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">
 
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>HOME PAGE</title>
@@ -118,4 +120,6 @@ if(!isset($_COOKIE['user'])){
         </main>
         <?php include("navigation_bar_mobile.php") ?>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script type="text/javascript" src="public/js/glide.js" ></script>
 </body>
