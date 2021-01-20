@@ -137,6 +137,9 @@ ul>li>i{
 
 
 }
+form{
+    margin:0;
+}
 .respond-container button{
     border-radius: 0em;
     max-width: 5em;
@@ -248,5 +251,9 @@ ul>li>i{
     .message-container{
         height:5em;
         width:10em;
+    }
+    .glide__slide{
+        max-width: 100vw;
+        padding:0 20vw;
     }
 }

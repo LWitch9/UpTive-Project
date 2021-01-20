@@ -12,8 +12,8 @@
         </div>
     </a>
     <div class="navi">
-        <a href="#" class="button">
-            <span>HOME</span>
+        <a href="http://localhost:8080/home" class="button">
+            HOME
         </a>
     </div>
     <div class="navi">
