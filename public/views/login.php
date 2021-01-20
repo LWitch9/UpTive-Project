@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <script defer type="text/javascript" src="public/js/script.js" ></script>
     <title>LOGIN PAGE</title>
 </head>
 <body>

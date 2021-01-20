@@ -11,6 +11,7 @@ if(!isset($_COOKIE['user'])){
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script defer type="text/javascript" src="public/js/glide.js" ></script>
     <script defer src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>

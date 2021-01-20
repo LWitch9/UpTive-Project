@@ -288,7 +288,12 @@ main-content{
     min-width: 13em;
 
 }
-
+.no-valid{
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
 footer{
     height: 5vh;
     width: 100vw;
