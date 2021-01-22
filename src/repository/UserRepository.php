@@ -30,7 +30,8 @@ class UserRepository extends Repository
           $user['name'],
           $user['surname'],
           $user['bio'],
-          $user['avatar']
+          $user['avatar'],
+          $user['salt']
 
         );
     }
