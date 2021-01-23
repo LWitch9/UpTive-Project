@@ -17,11 +17,19 @@ class ProfileController extends AppController
     }
 
     public function profile(){
-        $user= $this->userRepository->getUser($_COOKIE['user']);
-        $activities= $this->userRepository->getUserActivities($_COOKIE['user']);
-        $achievements= $this->userRepository->getUserAchievements($_COOKIE['user']);
-        $events = $this->eventRepository->getUserAssignedEvents($_COOKIE['user']);
-        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-        $this->render('profile',['user'=>$user, 'activities'=>$activities, 'achievements'=>$achievements, 'events'=>$events, 'calendars'=>$calendars]);
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $activities= $this->userRepository->getUserActivities($_COOKIE['user']);
+            $achievements= $this->userRepository->getUserAchievements($_COOKIE['user']);
+            $events = $this->eventRepository->getUserAssignedEvents($_COOKIE['user']);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $this->render('profile',['user'=>$user, 'activities'=>$activities, 'achievements'=>$achievements, 'events'=>$events, 'calendars'=>$calendars]);
+        }
+        else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
     }
 }

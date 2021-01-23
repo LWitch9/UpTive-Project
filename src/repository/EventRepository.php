@@ -37,52 +37,93 @@ class EventRepository extends Repository
         }
 
         return new Event(
-            $userRepo->getUser($event['email']),
             $event['activity'],
             $event['location'],
             $event['date'],
             $event['time'],
             $event['message']
-
-
         );
     }
     public function addEvent(Event $event){
 
         $date = new DateTime();
-        $activityRepo = new ActivityRepository();
         $userRepo = new UserRepository();
 
 
          $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.events (id_assigned_by, location, date, time, message, created_at, id_activity) 
+            "INSERT INTO public.events (id_assigned_by, id_location, date, time, message, created_at, id_activity) 
                     VALUES(?,?,?,?,?,?,?);"
         );
 
+        $assignedById = $userRepo->getUserId($_COOKIE["user"]);
+        $statement->execute([
+            $assignedById,
+            $this->getLocationID($event->getLocation()),
+            $event->getDate(),
+            $event->getTime(),
+            $event->getMessage(),
+            $date->format('Y-m-d'),
+            $this->getActivityID($event->getActivity())
+
+        ]);
+    }
+    public function getLocationID(string $location ): int{
+        $help_stat_loc = $this->database->connect()->prepare(
+            "SELECT public.locations.id as id
+                        FROM public.locations
+                        WHERE (public.locations.name = ?);
+                    "
+        );
+
+
+        $help_stat_loc->execute([$location]);
+        $idLocation = $help_stat_loc->fetch(PDO::FETCH_ASSOC);
+        return $idLocation['id'];
+    }
+    public function getAllLocations(): array{
+        $result = [];
+        $help_stat_loc = $this->database->connect()->prepare(
+            "SELECT public.locations.name as name
+                        FROM public.locations;
+                    "
+        );
+
+
+        $help_stat_loc->execute();
+        $locations = $help_stat_loc->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($locations as $location){
+            $result[] = $location['name'];
+        }
+        return $result;
+    }
+    public function getAllActivities(): array{
+        $result = [];
+        $help_stat_loc = $this->database->connect()->prepare(
+            "SELECT public.activities.name as name
+                        FROM public.activities;
+                    "
+        );
+
+
+        $help_stat_loc->execute();
+        $activities= $help_stat_loc->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($activities as $activity){
+            $result[] = $activity['name'];
+        }
+        return $result;
+    }
+    public function getActivityID(string $activity ): int{
         $help_stat = $this->database->connect()->prepare(
             "SELECT public.activities.id as id
-                        FROM activities
+                        FROM public.activities
                         WHERE (public.activities.name = ?);
                     "
         );
 
 
-        $help_stat->execute([$event->getActivity()]);
+        $help_stat->execute([$activity]);
         $idActivity = $help_stat->fetch(PDO::FETCH_ASSOC);
-
-        //TODO Pobrać na podstawie sesji
-        $assignedById = $userRepo->getUserId($_COOKIE["user"]);
-        $statement->execute([
-            $assignedById,
-            $event->getLocation(),
-            $event->getDate(),
-            $event->getTime(),
-            $event->getMessage(),
-            $date->format('Y-m-d'),
-            $idActivity["id"]
-            //$activityRepo->findActivityId($event->getActivity())
-
-        ]);
+        return $idActivity['id'];
     }
     public function getEvents(): array
     {
