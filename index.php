@@ -21,6 +21,7 @@ Routing::post('request','EventController');
 Routing::post('reject','EventController');
 Routing::post('accept','EventController');
 Routing::post('profileOtherUser','ProfileController');
+Routing::post('searchBar','ProfileController');
 
 Routing::run($path);
 

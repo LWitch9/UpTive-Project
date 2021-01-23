@@ -325,11 +325,12 @@ left-bar a.button{
     display:flex;
     flex-direction: row;
     max-width: 70vw;
+    color: #FFFFFF;
     background: none;
     border-bottom: 0.1em solid #FFFFFF;
     border-radius: 0;
     margin: 0 1em;
-    color: white;
+
 }
 .search-bar > i {
     padding:0.5em 0 0.2em 0;
@@ -337,6 +338,7 @@ left-bar a.button{
 }
 .search-bar input{
     background:none;
+    color: #FFFFFF;
     margin:0;
 }
 .search-bar input::placeholder{
