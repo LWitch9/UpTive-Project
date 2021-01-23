@@ -18,6 +18,10 @@
             <?php include("calendar-bar.php") ?>
         </left-bar>
         <main-content>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input placeholder="search events">
+            </div>
             <div class="people-container">
                 <?php foreach ($people as $person):?>
                     <div class="person">
@@ -32,12 +36,6 @@
 
                         <br>
                         <h><?= $person->getName() ." ".$person->getSurname()?></h>
-                        <div class="socials">
-                            <i class="fab fa-facebook-f"></i>
-                            <i class="fab fa-instagram"></i>
-                            <i class="fab fa-twitter"></i>
-                            <i class="fab fa-snapchat-ghost"></i>
-                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
