@@ -273,6 +273,41 @@ class EventRepository extends Repository
 
         return $result;
     }
+    public function getExceptUserEvents(string $email) : array{
+        $userRepo = new UserRepository();
+        $result = [];
+
+        $statement = $this->database->connect()->prepare(
+            "SELECT * FROM view_events 
+                        WHERE (email != ? AND (date > ? OR (date = ? AND time > ?)))
+                        ORDER BY date, time;"
+        );
+
+        $statement->execute([$email,$this->date,$this->date,$this->time]);
+        $events = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($events as $event){
+            $result[] = ['event'=>
+                new Event(
+                    $event['activity'],
+                    $event['location'],
+                    $event['date'],
+                    $event['time'],
+                    $event['message']
+                ), 'id'=> $event['id'],
+                'owner'=>
+                    $userRepo->getUser($event['email']),
+                'participants'=>
+                    $participants = $this->getParticipants($event['id']),
+                'request'=>
+                    $request = $this->getRequestUser($event['id'])
+            ];
+        }
+        return $result;
+
+
+    }
     public function getParticipants(int $id) : array{
         $userRepo = new UserRepository();
         $result = [];

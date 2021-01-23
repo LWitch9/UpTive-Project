@@ -17,7 +17,7 @@ class EventController extends AppController
     }
     public function search(){
         if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
-            $events = $this->eventRepository->getEvents();
+            $events = $this->eventRepository->getExceptUserEvents($_COOKIE['user']);
             $user= $this->userRepository->getUser($_COOKIE['user']);
             $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
             $this->render('search',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
