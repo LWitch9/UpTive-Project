@@ -30,7 +30,8 @@ class UserRepository extends Repository
           $user['name'],
           $user['surname'],
           $user['bio'],
-          $user['avatar']
+          $user['avatar'],
+          $user['salt']
 
         );
     }
@@ -136,6 +137,32 @@ class UserRepository extends Repository
                 $achievement['title'],
                 $achievement['text'],
                 $achievement['img']
+            );
+        }
+
+        return $result;
+    }
+    public function getAllUsersExcept(string $email): array{
+
+        $result =[];
+        $statement = $this->database->connect()->prepare(
+            'select * FROM view_users_with_details
+                        WHERE email != ?;'
+        );
+        $statement->execute([$email]);
+
+        $people = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($people as $person){
+            $result[]=new User(
+                $person['email'],
+                $person['password'],
+                $person['name'],
+                $person['surname'],
+                $person['bio'],
+                $person['avatar'],
+                $person['salt']
+
             );
         }
 

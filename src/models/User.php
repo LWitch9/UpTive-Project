@@ -11,6 +11,9 @@ class User
     private $bio;
     private $avatar;
 
+
+
+
     public function __construct($email, $password, $name, $surname, $bio=null, $avatar=null)
     {
         $this->email = $email;
@@ -21,8 +24,7 @@ class User
         $this->avatar = $avatar;
     }
 
-
-    public function getEmail(): string
+     public function getEmail(): string
     {
         return $this->email;
     }

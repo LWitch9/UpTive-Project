@@ -2,7 +2,6 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Event.php';
 require_once __DIR__.'/../repository/EventRepository.php';
-require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class EventController extends AppController
 {
@@ -17,26 +16,65 @@ class EventController extends AppController
         $this->userRepository = new UserRepository();
     }
     public function search(){
-        $events = $this->eventRepository->getEvents();
-        $user= $this->userRepository->getUser($_COOKIE['user']);
-        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-        $this->render('search',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
-    }
-    public function addActivity(){
-        $user= $this->userRepository->getUser($_COOKIE['user']);
-        $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-        $this->render('add_activity',['user'=>$user, 'calendars'=>$calendars]);
-    }
-    public function home(){
-        if (!isset($_COOKIE['user'])){
-            $this->render('login');
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
+            $events = $this->eventRepository->getEvents();
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $this->render('search',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
         }
         else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
+    }
+    public function addActivity(){
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $activities = $this->eventRepository->getAllActivities();
+            $locations = $this->eventRepository->getAllLocations();
+            $this->render('add_activity',['user'=>$user, 'calendars'=>$calendars, 'activities'=>$activities, 'locations'=>$locations]);
+        }
+        else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
+    }
+    public function home(){
+
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
             $user= $this->userRepository->getUser($_COOKIE['user']);
             $events = $this->eventRepository->getUserAssignedParticipatedEvents($_COOKIE['user']);
             $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
             $this->render('home',['user'=>$user,'events'=>$events, 'calendars'=>$calendars]);
+
         }
+
+        else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
+    }
+    public function people(){
+
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $people = $this->userRepository->getAllUsersExcept($_COOKIE['user']);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $this->render('people',['user'=>$user, 'calendars'=>$calendars, 'people'=>$people]);
+        }
+        else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
 
     }
     public function addEvent(){

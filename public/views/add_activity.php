@@ -1,10 +1,3 @@
-<?php
-if(!isset($_COOKIE['user'])){
-    $url = "http://$_SERVER[HTTP_HOST]";
-    header("Location: {$url}/login");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type=text/css href="public/css/style.css">
@@ -30,9 +23,9 @@ if(!isset($_COOKIE['user'])){
                     <div class="form-container">
                         <select id="activity" name="activity" required>
                             <option value="" disabled selected>Choose activity</option>
-                            <option value="Swimming">Swimming</option>
-                            <option value="Volleyball">Volleyball</option>
-                            <option value="sw">Swimming</option>
+                            <?php foreach ($activities as $activity):?>
+                            <option value="<?= $activity ?>"><?= $activity ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <select id="type" name="type" >
                             <option value="" disabled selected>Choose preferred type of training</option>
@@ -46,9 +39,9 @@ if(!isset($_COOKIE['user'])){
                     <div class="form-container">
                         <select id="location" name="location" required>
                             <option value="" disabled selected>Choose preferred location</option>
-                            <option value="KRAKOW,KROWODRZA">KRAKOW,KROWODRZA</option>
-                            <option value="KRAKOW,STARE MIASTO">KRAKOW,STARE MIASTO</option>
-                            <option value="KRAKOW,KAZIMIERZ">KRAKOW,KAZIMIERZ</option>
+                            <?php foreach ($locations as $location):?>
+                                <option value="<?= $location ?>"><?= $location ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <input type="date" name="date" id="date" min="2021-01-01" max="2023-12-31" required>
                         <input type="time" id="time" name="time" required>

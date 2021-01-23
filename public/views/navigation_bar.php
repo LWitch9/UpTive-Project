@@ -21,9 +21,15 @@
             SEARCH
         </a>
     </div>
-    <div class="navi">FRIENDS</div>
+    <div class="navi">
+        <a href="http://localhost:8080/people" class="button">
+            PEOPLE
+        </a>
+    </div>
     <div class="navi-icons">
-        <i class="fas fa-cog"></i>
+        <a href="http://localhost:8080/settingsProfile" class="button">
+            <i class="fas fa-cog"></i>
+        </a>
         <i class="far fa-bell" ></i>
         <form id ="logout" action="logout" method="GET">
             <button >

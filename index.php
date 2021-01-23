@@ -11,12 +11,16 @@ Routing::get('profile','ProfileController');
 Routing::get('addActivity','EventController');
 Routing::get('search','EventController');
 Routing::get('logout','SecurityController');
+Routing::get('settingsProfile','DefaultController');
+Routing::get('settingsForm','DefaultController');
+Routing::get('people','EventController');
 Routing::post('login','SecurityController');
 Routing::post('signup','SecurityController');
 Routing::post('addEvent','EventController');
 Routing::post('request','EventController');
 Routing::post('reject','EventController');
 Routing::post('accept','EventController');
+Routing::post('profileOtherUser','ProfileController');
 
 Routing::run($path);
 

@@ -37,7 +37,10 @@ class SecurityController extends AppController
         if ($user->getEmail() != $email){
             return $this->render('login',['messages'=>['User with this email dosn\'t exist']]);
         }
-        if ($user->getPassword() != $password){
+
+        //encrypt password
+        $comparingResult = password_verify($password,$user->getPassword());
+        if (!$comparingResult){
             return $this->render('login',['messages'=>['Wrong password!']]);
         }
 
@@ -87,14 +90,15 @@ class SecurityController extends AppController
             return $this->render('login',['messages'=>['Passwords must match'],'signup'=>["true"]]);
         }
 
+        //Hash password
+        $hashed = password_hash($password, PASSWORD_BCRYPT);
+
         //After everything was properly written
-        //TODO add user to database
-        //TODO zahaszuj hasło
         $userRepository->addUser([
             'name' => $name,
             'surname' => $surname,
             'email' => $email,
-            'password' => $password
+            'password' => $hashed
         ]);
 
         $cookie_name = 'user';

@@ -129,12 +129,14 @@ right-main>i{
     color: #222E58;
     font-size:1.5em;
 }
+
 left-main .glide{
     max-width:45vw;
 }
 left-main .glide__slide{
     max-width: 23vw;
 }
+
 @media only screen and (max-device-width: 420px) {
     * {
         font-size: 36px;
