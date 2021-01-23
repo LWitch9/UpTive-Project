@@ -5,7 +5,6 @@ class User
 {
     private $email;
     private $password;
-    private $salt;
 
     private $name;
     private $surname;
@@ -15,28 +14,17 @@ class User
 
 
 
-    public function __construct($email, $password, $name, $surname, $bio=null, $avatar=null, $salt =null)
+    public function __construct($email, $password, $name, $surname, $bio=null, $avatar=null)
     {
         $this->email = $email;
         $this->password = $password;
-        $this->salt = $salt;
         $this->name = $name;
         $this->surname = $surname;
         $this->bio = $bio;
         $this->avatar = $avatar;
     }
 
-    public function getSalt(): ?mixed
-    {
-        return $this->salt;
-    }
-
-    public function setSalt(?mixed $salt): void
-    {
-        $this->salt = $salt;
-    }
-
-    public function getEmail(): string
+     public function getEmail(): string
     {
         return $this->email;
     }

@@ -2,7 +2,6 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Event.php';
 require_once __DIR__.'/../repository/EventRepository.php';
-require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class EventController extends AppController
 {
@@ -60,6 +59,22 @@ class EventController extends AppController
             header("Location: {$url}/login");
             exit();
         }
+
+    }
+    public function people(){
+
+        if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
+            $user= $this->userRepository->getUser($_COOKIE['user']);
+            $people = $this->userRepository->getAllUsersExcept($_COOKIE['user']);
+            $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
+            $this->render('people',['user'=>$user, 'calendars'=>$calendars, 'people'=>$people]);
+        }
+        else{
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+            exit();
+        }
+
 
     }
     public function addEvent(){

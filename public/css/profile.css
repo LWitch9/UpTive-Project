@@ -130,6 +130,8 @@ right-main>i{
     font-size:1.5em;
 }
 
+
+
 @media only screen and (max-device-width: 420px) {
     * {
         font-size: 36px;

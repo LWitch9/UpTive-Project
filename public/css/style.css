@@ -288,7 +288,39 @@ main-content{
     min-width: 13em;
 
 }
+left-bar a.button{
+    max-width:18vw;
+    min-width:18vw;
+    margin:1em 0;
+    padding:0.7em 0;
+    border: 1px solid #FFFFFF;
+    font-size:1em;
+    background: #222E58 0% 0% no-repeat padding-box;
+    border-radius: 26px;
+    text-align: center;
+    color: #FFFFFF;
 
+}
+.people-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.person{
+    display:flex;
+    max-width: 20em;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+
+}
+
+input.settings{
+    min-width: 40em;
+}
+select.settings{
+    min-width: 40em;
+}
 footer{
     height: 5vh;
     width: 100vw;

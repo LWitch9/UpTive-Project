@@ -67,6 +67,17 @@ class EventRepository extends Repository
 
         ]);
     }
+
+    public function addLocation(string $location){
+        if($this->getLocationID($location) == null){
+            //TODO handle exception
+            return;
+        }
+        $statement = $this->database->connect()->prepare(
+            "INSERT INTO public.locations (name) VALUES(?);"
+        );
+        $statement->execute([$location]);
+    }
     public function getLocationID(string $location ): int{
         $help_stat_loc = $this->database->connect()->prepare(
             "SELECT public.locations.id as id
@@ -95,6 +106,17 @@ class EventRepository extends Repository
             $result[] = $location['name'];
         }
         return $result;
+    }
+
+    public function addActivity(string $activity){
+        if($this->getActivityID($activity) == null){
+            //TODO handle exception
+            return;
+        }
+        $statement = $this->database->connect()->prepare(
+            "INSERT INTO public.activities (name) VALUES(?);"
+        );
+        $statement->execute([$activity]);
     }
     public function getAllActivities(): array{
         $result = [];
@@ -125,6 +147,7 @@ class EventRepository extends Repository
         $idActivity = $help_stat->fetch(PDO::FETCH_ASSOC);
         return $idActivity['id'];
     }
+
     public function getEvents(): array
     {
         $userRepo = new UserRepository();
