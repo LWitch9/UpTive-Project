@@ -2,9 +2,17 @@
 require_once "Repository.php";
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Achievement.php';
+require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class UserRepository extends Repository
 {
+    private $activityRepository;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->activityRepository = new ActivityRepository();
+
+    }
     public function getUser(string $email): ?User
     {
         //Polecenie pobrania danych z bazy
@@ -30,8 +38,7 @@ class UserRepository extends Repository
           $user['name'],
           $user['surname'],
           $user['bio'],
-          $user['avatar'],
-          $user['salt']
+          $user['avatar']
 
         );
     }
@@ -83,9 +90,25 @@ class UserRepository extends Repository
 
         return $user['id'];
     }
-    public function addUser(array $data){
-        //TODO dodaj jakąś transakcje/funkcje /procedure do dodawania
+    public function getUserDetailsId(string $email): ?int
+    {
+        $statement = $this->database->connect()->prepare(
+            'select id_user_details FROM public.users 
+                        where email = :email;'
+        );
 
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if($user == false){
+            return null;
+        }
+
+        return $user['id_user_details'];
+    }
+    public function addUser(array $data){
         $help = $this->database->connect()->prepare(
             "SELECT add_return_id_user_details(?,?);"
         );
@@ -95,7 +118,8 @@ class UserRepository extends Repository
         $userDetails =$help->fetch(PDO::FETCH_ASSOC);
 
         $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.users (email, password, id_user_details) VALUES(?,?,?);"
+            "INSERT INTO public.users (email, password, id_user_details)
+                        VALUES(?,?,?);"
         );
         $statement->execute([$data['email'],$data['password'] ,$userDetails['add_return_id_user_details']]);
     }
@@ -183,5 +207,70 @@ class UserRepository extends Repository
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getRoleID(string $email): int{
+        $statement = $this->database->connect()->prepare(
+            'select role_id FROM public.users 
+                        where email = :email;'
+        );
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $user['role_id'];
+    }
+    public function isAdmin(string $email): bool{
+        if( $this->getRoleID($email) === 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function updateProfile(array $data){
+
+       if($data['bio'] == null){
+           $this->updateBio($data);
+       }
+        if($data['activity'] == null){
+            $this->updateActivity($data);
+        }
+    }
+    private function updateBio(array $data){
+        $statement = $this->database->connect()->prepare(
+            "UPDATE public.users_details 
+            SET bio = ?
+            WHERE id = ?;"
+        );
+        $statement->execute([$data['bio'],$this->getUserDetailsId($data['email'])]);
+    }
+
+    private function updateActivity(array $data)
+    {
+        $help = $this->database->connect()->prepare(
+            "SELECT * FROM public.users_details_activities
+                        WHERE public.users_details_activities.id_user_details = ?
+                                AND users_details_activities.id_activity = ?;"
+        );
+
+
+        $help->execute([
+            $this->getUserDetailsId($data['email']),
+            $this->activityRepository->getActivityID($data['activity'])
+        ]);
+        $user_activity =$help->fetch(PDO::FETCH_ASSOC);
+        if($user_activity != null){
+            return;
+        }
+
+        $statement = $this->database->connect()->prepare(
+            "INSERT INTO public.users_details_activities (id_activity, id_user_details)
+                        VALUES(?,?)"
+        );
+        $statement->execute([
+            $this->activityRepository->getActivityID($data['activity']),
+            $this->getUserDetailsId($data['email'])
+        ]);
     }
 }

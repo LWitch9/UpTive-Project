@@ -2,25 +2,31 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Event.php';
 require_once __DIR__.'/../repository/EventRepository.php';
+require_once __DIR__.'/../repository/LocationRepository.php';
+require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class EventController extends AppController
 {
     //private $messages = [];
     private $eventRepository;
     private $userRepository;
+    private $activityRepository;
+    private $locationRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->eventRepository = new EventRepository();
+        $this->activityRepository = new ActivityRepository();
+        $this->locationRepository = new LocationRepository();
         $this->userRepository = new UserRepository();
     }
-    public function search(){
+    public function events(){
         if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
             $events = $this->eventRepository->getExceptUserEvents($_COOKIE['user']);
             $user= $this->userRepository->getUser($_COOKIE['user']);
             $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-            $this->render('search',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
+            $this->render('events',['user'=>$user, 'events'=>$events,'calendars'=>$calendars]);
         }
         else{
             $url = "http://$_SERVER[HTTP_HOST]";
@@ -33,8 +39,8 @@ class EventController extends AppController
         if(isset($_COOKIE['user']) and $this->userRepository->getUser($_COOKIE['user'])){
             $user= $this->userRepository->getUser($_COOKIE['user']);
             $calendars = $this->eventRepository->getCalendarEvents($_COOKIE['user']);
-            $activities = $this->eventRepository->getAllActivities();
-            $locations = $this->eventRepository->getAllLocations();
+            $activities = $this->activityRepository->getAllActivities();
+            $locations = $this->locationRepository->getAllLocations();
             $this->render('add_activity',['user'=>$user, 'calendars'=>$calendars, 'activities'=>$activities, 'locations'=>$locations]);
         }
         else{
@@ -93,7 +99,7 @@ class EventController extends AppController
         $userRepo = new UserRepository();
         if ( !$this->isPost() ){
             $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location:{$url}/search");
+            header("Location:{$url}/events");
         }
 
         $eventID = $_POST["eventID"];
@@ -105,7 +111,7 @@ class EventController extends AppController
 
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location:{$url}/search");
+        header("Location:{$url}/events");
 
     }
 
@@ -142,4 +148,6 @@ class EventController extends AppController
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
     }
+
+
 }

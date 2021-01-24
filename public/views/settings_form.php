@@ -17,11 +17,11 @@
             <?php include("settings.php") ?>
         </left-bar>
         <main-content>
-            <form>
+            <form id="updateForm" action="updateForm" method="POST">
                 <div class="title-label">NEW LOCATION</div>
-                <input type="text" class="settings">
+                <input type="text" id="location" name="location" class="settings">
                 <div class="title-label">NEW ACTIVITY</div>
-                <input type="text" class="settings">
+                <input type="text" id="activity" name="activity" class="settings">
 
                 <button>ADD TO DATABASE</button>
             </form>

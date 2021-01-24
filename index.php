@@ -9,7 +9,7 @@ Routing::get('','DefaultController');
 Routing::get('home','EventController');
 Routing::get('profile','ProfileController');
 Routing::get('addActivity','EventController');
-Routing::get('search','EventController');
+Routing::get('events','EventController');
 Routing::get('logout','SecurityController');
 Routing::get('settingsProfile','DefaultController');
 Routing::get('settingsForm','DefaultController');
@@ -22,6 +22,8 @@ Routing::post('reject','EventController');
 Routing::post('accept','EventController');
 Routing::post('profileOtherUser','ProfileController');
 Routing::post('searchBar','ProfileController');
+Routing::post('updateProfile','ProfileController');
+Routing::post('updateForm','DefaultController');
 
 Routing::run($path);
 

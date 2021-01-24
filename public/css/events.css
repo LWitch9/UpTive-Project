@@ -131,10 +131,12 @@ ul>li>i{
     min-width: 8em;
 
 }
+.event form>button
 .respond-container{
+    min-width: 13em;
     display: flex;
     flex-direction:row;
-
+    background:red;
 
 }
 form{

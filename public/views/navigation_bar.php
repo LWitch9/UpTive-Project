@@ -8,7 +8,7 @@
     <a href="http://localhost:8080/addActivity" class="button">
         <div class="add-activity">
             <i class="fas fa-plus-circle"></i>
-            ADD ACTIVITY
+            ADD EVENT
         </div>
     </a>
     <div class="navi">
@@ -17,8 +17,8 @@
         </a>
     </div>
     <div class="navi">
-        <a href="http://localhost:8080/search" class="button">
-            SEARCH
+        <a href="http://localhost:8080/events" class="button">
+            EVENTS
         </a>
     </div>
     <div class="navi">

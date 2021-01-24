@@ -8,9 +8,15 @@ class EventRepository extends Repository
 {
     private $date;
     private $time;
+    private $activityRepository;
+    private $locationRepository;
     public function __construct()
     {
         parent::__construct();
+
+        $this->activityRepository = new ActivityRepository();
+        $this->locationRepository = new LocationRepository();
+
         $dateTime = new DateTime( );
         $dateTime->add(new DateInterval('PT1H')); // add one hour (it shows originally that it is 1 hour ealier);
         $this->date =$dateTime->format('Y-m-d');
@@ -58,94 +64,14 @@ class EventRepository extends Repository
         $assignedById = $userRepo->getUserId($_COOKIE["user"]);
         $statement->execute([
             $assignedById,
-            $this->getLocationID($event->getLocation()),
+            $this->locationRepository->getLocationID($event->getLocation()),
             $event->getDate(),
             $event->getTime(),
             $event->getMessage(),
             $date->format('Y-m-d'),
-            $this->getActivityID($event->getActivity())
+            $this->activityRepository->getActivityID($event->getActivity())
 
         ]);
-    }
-
-    public function addLocation(string $location){
-        if($this->getLocationID($location) == null){
-            //TODO handle exception
-            return;
-        }
-        $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.locations (name) VALUES(?);"
-        );
-        $statement->execute([$location]);
-    }
-    public function getLocationID(string $location ): int{
-        $help_stat_loc = $this->database->connect()->prepare(
-            "SELECT public.locations.id as id
-                        FROM public.locations
-                        WHERE (public.locations.name = ?);
-                    "
-        );
-
-
-        $help_stat_loc->execute([$location]);
-        $idLocation = $help_stat_loc->fetch(PDO::FETCH_ASSOC);
-        return $idLocation['id'];
-    }
-    public function getAllLocations(): array{
-        $result = [];
-        $help_stat_loc = $this->database->connect()->prepare(
-            "SELECT public.locations.name as name
-                        FROM public.locations;
-                    "
-        );
-
-
-        $help_stat_loc->execute();
-        $locations = $help_stat_loc->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($locations as $location){
-            $result[] = $location['name'];
-        }
-        return $result;
-    }
-
-    public function addActivity(string $activity){
-        if($this->getActivityID($activity) == null){
-            //TODO handle exception
-            return;
-        }
-        $statement = $this->database->connect()->prepare(
-            "INSERT INTO public.activities (name) VALUES(?);"
-        );
-        $statement->execute([$activity]);
-    }
-    public function getAllActivities(): array{
-        $result = [];
-        $help_stat_loc = $this->database->connect()->prepare(
-            "SELECT public.activities.name as name
-                        FROM public.activities;
-                    "
-        );
-
-
-        $help_stat_loc->execute();
-        $activities= $help_stat_loc->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($activities as $activity){
-            $result[] = $activity['name'];
-        }
-        return $result;
-    }
-    public function getActivityID(string $activity ): int{
-        $help_stat = $this->database->connect()->prepare(
-            "SELECT public.activities.id as id
-                        FROM public.activities
-                        WHERE (public.activities.name = ?);
-                    "
-        );
-
-
-        $help_stat->execute([$activity]);
-        $idActivity = $help_stat->fetch(PDO::FETCH_ASSOC);
-        return $idActivity['id'];
     }
 
     public function getEvents(): array

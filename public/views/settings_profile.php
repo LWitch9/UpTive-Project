@@ -17,11 +17,11 @@
             <?php include("settings.php") ?>
         </left-bar>
         <main-content>
-            <form>
+            <form id="updateProfile" action="updateProfile" method="POST">
                 <div class="title-label">NEW BIO</div>
                 <textarea name="bio" id="about" cols='70' rows='10' ></textarea>
                 <div class="title-label">ADD YOUR FAV ACTIVITY</div>
-                <select class="settings" id="activity" name="activity" required>
+                <select class="settings" id="activity" name="activity">
                     <option value="" disabled selected>Choose activity</option>
                     <?php foreach ($activities as $activity):?>
                         <option value="<?= $activity ?>"><?= $activity ?></option>

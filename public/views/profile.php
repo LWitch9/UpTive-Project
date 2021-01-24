@@ -21,10 +21,10 @@
             <left-main>
 
                 <div class="avatar-profile">
-                    <img src="public/img/avatars/<?= $user->getAvatar()?>.jpg" alt="Avatar">
+                    <img src="public/img/avatars/<?= $profileUser->getAvatar()?>.jpg" alt="Avatar">
                 </div>
                 <br>
-                <h><?= $user->getName() ." ".$user->getSurname()?></h>
+                <h><?= $profileUser->getName() ." ".$profileUser->getSurname()?></h>
                 <div class="socials">
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-instagram"></i>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="title-label">BIO</div>
                 <div class="bio-text">
-                    <?= $user->getBio()?>
+                    <?= $profileUser->getBio()?>
 
                 </div>
 
