@@ -27,7 +27,7 @@
                                 <li> <i class="far fa-calendar-alt"></i><?= $event['event']->getDate() ?></li>
                                 <li><i class="far fa-clock"></i><?= $event['event']->getTime() ?></li>
                             </ul>
-                            <div class="status">Waiting for response</div>
+                            <!--<div class="status">Waiting for response</div>-->
                             <?php if(isset($event['request'])): ?>
                                 <?php include("respond_container.php") ?>
                             <?php endif; ?>

@@ -8,8 +8,6 @@
     <div class="container">
         <div class="logo-container">
             <div class="logo">
-                <!--TODO Area for logo svg image-->
-                <!--Temporarily-->
                 UpTive
             </div>
         </div>
@@ -33,7 +31,6 @@
                     <button>SIGN UP</button>
                 </form>
             </div>
-
             <div class="login-container" >
                 <form class="login" action="login" method="POST">
                     <div class="message">

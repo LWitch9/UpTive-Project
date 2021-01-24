@@ -13,108 +13,21 @@
 </head>
 <body>
     <div class="base-container">
-        <?php include("navigation_bar.php") ?>
-        <?php include("upper_navigation_bar_mobile.php") ?>
+        <?php include("includes/navigation_bar.php") ?>
+        <?php include("includes/upper_navigation_bar_mobile.php") ?>
         <main>
             <left-bar>
-                <?php include("calendar-bar.php") ?>
+                <?php include("includes/calendar-bar.php") ?>
             </left-bar>
             <main-content>
                 <div class="title-label">IN PROGRESS</div>
-                <?php include("events-container.php") ?>
+                <?php include("includes/events-container-small.php") ?>
                 <div class="title-label">RECOMMENDED</div>
-                <div class="events-container">
-                    <i class="fas fa-chevron-left"></i>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <!--<div class="status">Waiting for response</div>-->
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <!--<div class="status">Waiting for response</div>-->
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <!--<div class="status">Waiting for response</div>-->
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="avatars-container">
-                            <div class="number">+2</div>
-                            <div class="avatar_event">
-                                <img src="public/img/basic.jpg" alt="Avatar">
-                            </div>
-                        </div>
-                        <ul>
-                            <li><i class="fas fa-swimmer"></i> </li>
-                            <li><i class="fas fa-map-marker-alt"></i> </li>
-                            <li> <i class="far fa-calendar-alt"></i></li>
-                            <li><i class="far fa-clock"></i></li>
-                        </ul>
-                        <!--<div class="status">Waiting for response</div>-->
-                        <div class="icons">
-                            <i class="far fa-edit"></i>
-                            <i class="far fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-h"></i>
-                            <i class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+                <!-- TODO -->
 
             </main-content>
         </main>
-        <?php include("navigation_bar_mobile.php") ?>
+        <?php include("includes/navigation_bar_mobile.php") ?>
     </div>
 
 </body>

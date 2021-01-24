@@ -1,9 +1,7 @@
 body{
     margin:0;
 }
-/*TODO
-Zmień gdzie to możliwe z px na em
-*/
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -50,7 +48,6 @@ form {
 }
 
 .login-container{
-    /*TODO czy potrzebne? czy mogę zastąpić czymś żeby wycentrować?*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,10 +62,6 @@ form {
     
 }
 
-/*
-TODO
-Add sth between buttons login sign up (line or)
-*/
 .additional-signup{
     display: none;
 }
@@ -89,10 +82,6 @@ Add sth between buttons login sign up (line or)
     
 }
 
-/*
-TODO
-button, input - change text size/font
-*/
  button{
     background: #222E58 0% 0% no-repeat padding-box;
     width:120%;
@@ -121,8 +110,6 @@ input::placeholder{
     color: #001F86;
 }
 
-
-/*For views beside login page*/
 .base-container{
     display: flex;
     flex-direction: column;
@@ -316,7 +303,6 @@ left-bar a.button{
 }
 .person{
     display:flex;
-    max-width: 20em;
     flex-direction: column;
     align-items: center;
     padding: 1em;
@@ -351,23 +337,6 @@ input.settings{
 select.settings{
     min-width: 40em;
 }
-
-footer{
-    height: 5vh;
-    width: 100vw;
-    background: #222E58 0% 0% no-repeat padding-box;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-header{
-    height: 5vh;
-    width: 100vw;
-    background: #222E58 0% 0% no-repeat padding-box;
-    color: #FFFFFF;
-    text-align: center;
-}
-
 upper-bar-mobile{
     display: none;
 
@@ -385,12 +354,6 @@ nav-bar-mobile{
     .logo{
         font-size: 2.5em
     }
-    /*
-    TODO
-    Czy w ten sposób powinno się przekształcać kontenery?
-    */
-
-    /*Login page*/
 
     .signup-container{
         display: none;
@@ -541,16 +504,12 @@ nav-bar-mobile{
         font-size: 2em;
         padding-bottom:0.2em
     }
-    /*Home Page*/
 
+    /* people page*/
+    .person{
+        min-width: 90vw;
 
-
-
-
-    /*ADD ACTIVITY*/
-    /*Try*/
-
-    /*@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";*/
+    }
 
 }
 

@@ -8,14 +8,14 @@
 
     </div>
     <div class="icon-container-mobile">
-        <a href="http://localhost:8080/search" class="button">
-            <i class="fas fa-search"></i>
+        <a href="http://localhost:8080/events" class="button">
+            <i class="fas fa-running"></i>
         </a>
-        <h>SEARCH</h>
+        <h>EVENTS</h>
 
     </div>
     <div class="icon-container-mobile">
-        <a href="http://localhost:8080/search" class="button">
+        <a href="http://localhost:8080/people" class="button">
             <i class="fas fa-users"></i>
         </a>
         <h>PEOPLE</h>

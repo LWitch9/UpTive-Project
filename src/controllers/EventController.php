@@ -7,7 +7,6 @@ require_once __DIR__.'/../repository/ActivityRepository.php';
 
 class EventController extends AppController
 {
-    //private $messages = [];
     private $eventRepository;
     private $userRepository;
     private $activityRepository;

@@ -10,11 +10,11 @@
 </head>
 <body>
 <div class="base-container">
-    <?php include("navigation_bar.php") ?>
-    <?php include("upper_navigation_bar_mobile.php") ?>
+    <?php include("includes/navigation_bar.php") ?>
+    <?php include("includes/upper_navigation_bar_mobile.php") ?>
     <main>
         <left-bar>
-            <?php include("settings.php") ?>
+            <?php include("includes/settings.php") ?>
         </left-bar>
         <main-content>
             <form id="updateForm" action="updateForm" method="POST">
@@ -29,6 +29,6 @@
 
         </main-content>
     </main>
-    <?php include("navigation_bar_mobile.php") ?>
+    <?php include("includes/navigation_bar_mobile.php") ?>
 </div>
 </body>

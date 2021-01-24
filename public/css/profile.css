@@ -133,7 +133,7 @@ right-main>i{
 left-main .glide{
     max-width:45vw;
     min-width:45vw;
-    padding: 3.5em;
+
 }
 left-main .glide__slide{
     max-width: 18vw;
@@ -166,7 +166,6 @@ left-main .glide__slide{
     }
     left-main .glide__slide{
         max-width: 100vw;
-        padding:0 20vw;
     }
 
 }

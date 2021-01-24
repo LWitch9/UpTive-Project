@@ -27,8 +27,6 @@ class UserRepository extends Repository
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            //Przypadek kiedy użytkownik nie zostanie znaleźiony (zamiast tablicy asocjacyjnej zawiera false)
-            //TODO zrobić exception który zostanie rzucony w tym przypadku
             return null;
         }
 
@@ -54,8 +52,6 @@ class UserRepository extends Repository
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            //Przypadek kiedy użytkownik nie zostanie znaleźiony (zamiast tablicy asocjacyjnej zawiera false)
-            //TODO zrobić exception który zostanie rzucony w tym przypadku
             return null;
         }
 
@@ -71,20 +67,18 @@ class UserRepository extends Repository
     }
     public function getUserId(string $email): ?int
     {
-        //Polecenie pobrania danych z bazy
+
         $statement = $this->database->connect()->prepare(
             'select * FROM public.users 
                         where email = :email;'
         );
-        //przypisanie danej :email z bazy do zmiennej $email
+
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->execute();
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            //Przypadek kiedy użytkownik nie zostanie znaleźiony (zamiast tablicy asocjacyjnej zawiera false)
-            //TODO zrobić exception który zostanie rzucony w tym przypadku
             return null;
         }
 
@@ -237,6 +231,7 @@ class UserRepository extends Repository
             $this->updateActivity($data);
         }
     }
+
     private function updateBio(array $data){
         $statement = $this->database->connect()->prepare(
             "UPDATE public.users_details 
@@ -245,7 +240,6 @@ class UserRepository extends Repository
         );
         $statement->execute([$data['bio'],$this->getUserDetailsId($data['email'])]);
     }
-
     private function updateActivity(array $data)
     {
         $help = $this->database->connect()->prepare(

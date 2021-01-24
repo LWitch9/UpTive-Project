@@ -4,21 +4,18 @@
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/form.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
-    <title>ADD ACTIVITY</title>
+    <title>ADD EVENT</title>
 </head>
 <body>
 <div class="base-container">
-    <?php include("navigation_bar.php") ?>
-    <?php include("upper_navigation_bar_mobile.php") ?>
+    <?php include("includes/navigation_bar.php") ?>
+    <?php include("includes/upper_navigation_bar_mobile.php") ?>
     <main>
         <left-bar>
-            <?php include("calendar-bar.php") ?>
+            <?php include("includes/calendar-bar.php") ?>
         </left-bar>
         <main-content>
-
-
                 <form id="addEvent" action="addEvent" method="POST">
-
                     <div class="title-label">BASICS</div>
                     <div class="form-container">
                         <select id="activity" name="activity" required>
@@ -33,7 +30,6 @@
                             <option value="mid">MEDIUM</option>
                             <option value="ha">HARD</option>
                         </select>
-
                     </div>
                     <div class="title-label">LOCATION AND TIME</div>
                     <div class="form-container">
@@ -48,44 +44,11 @@
                     </div>
                     <div class="title-label">OPTIONAL</div>
                     <textarea name="about" id="about" cols='50' rows='10' ></textarea>
-
-
-                    <button>ADD ACTIVITY</button>
-
+                    <button>ADD EVENT</button>
                 </form>
-
-
-
         </main-content>
-
-
     </main>
-    <nav-bar-mobile>
-        <div class="icon-container-mobile">
-            <i class="far fa-bell"></i>
-            <h>NOTIFS</h>
-        </div>
-        <div class="icon-container-mobile">
-            <i class="fas fa-home"></i>
-            <h>HOME</h>
-        </div>
-        <div class="icon-container-mobile">
-            <i class="far fa-calendar-alt"></i>
-            <h>CALENDAR</h>
-        </div>
-        <div class="icon-container-mobile">
-            <i class="fas fa-search"></i>
-            <h>SEARCH</h>
-        </div>
-        <div class="icon-container-mobile">
-            <i class="fas fa-users"></i>
-            <h>FRIENDS</h>
-        </div>
-        <div class="avatar">
-            <img src="public/img/basic.jpg" alt="Avatar">
-        </div>
-
-    </nav-bar-mobile>
+    <?php include("includes/navigation_bar_mobile.php") ?>
 
 </div>
 </body>

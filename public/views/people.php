@@ -12,11 +12,11 @@
 </head>
 <body>
 <div class="base-container">
-    <?php include("navigation_bar.php") ?>
-    <?php include("upper_navigation_bar_mobile.php") ?>
+    <?php include("includes/navigation_bar.php") ?>
+    <?php include("includes/upper_navigation_bar_mobile.php") ?>
     <main>
         <left-bar>
-            <?php include("calendar-bar.php") ?>
+            <?php include("includes/calendar-bar.php") ?>
         </left-bar>
         <main-content>
             <div class="search-bar">
@@ -42,22 +42,7 @@
             </div>
         </main-content>
     </main>
-    <?php include("navigation_bar_mobile.php") ?>
+    <?php include("includes/navigation_bar_mobile.php") ?>
 </div>
 </body>
-
-<template id="people-template">
-    <div class="person">
-        <form id ="profile-other-user" action="profileOtherUser" method="POST">
-            <input type=hidden id="email" name=email value="">
-            <button>
-                <div class="avatar-profile">
-                    <img src="" alt="Avatar">
-                </div>
-            </button>
-        </form>
-
-        <br>
-        <h>Name Surname</h>
-    </div>
-</template>
+<?php include("includes/people-template.php") ?>

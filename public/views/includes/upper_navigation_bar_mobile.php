@@ -4,7 +4,7 @@
             <i class="fas fa-bars"></i>
             <div class="add-activity">
                 <i class="fas fa-plus-circle"></i>
-                ADD ACTIVITY
+                ADD EVENT
             </div>
             <i class="fas fa-ellipsis-v"></i>
 

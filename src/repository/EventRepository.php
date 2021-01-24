@@ -128,9 +128,7 @@ class EventRepository extends Repository
                 'owner'=>
                 $userRepo->getUser($event['email']),
                 'participants'=>
-                    $participants = $this->getParticipants($event['id']),
-                'request'=>
-                    $request = $this->getRequestUser($event['id'])
+                    $participants = $this->getParticipants($event['id'])
             ];
         }
         return $result;
