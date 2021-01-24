@@ -1,26 +1,39 @@
+
 <nav-bar-mobile>
     <div class="icon-container-mobile">
-        <i class="far fa-bell"></i>
-        <h>NOTIFS</h>
-    </div>
-    <div class="icon-container-mobile">
-        <i class="fas fa-home"></i>
+        <a href="http://localhost:8080/home" class="button">
+            <i class="fas fa-home"></i>
+        </a>
         <h>HOME</h>
+
     </div>
     <div class="icon-container-mobile">
-        <i class="far fa-calendar-alt"></i>
-        <h>CALENDAR</h>
-    </div>
-    <div class="icon-container-mobile">
-        <i class="fas fa-search"></i>
+        <a href="http://localhost:8080/search" class="button">
+            <i class="fas fa-search"></i>
+        </a>
         <h>SEARCH</h>
+
     </div>
     <div class="icon-container-mobile">
-        <i class="fas fa-users"></i>
-        <h>FRIENDS</h>
+        <a href="http://localhost:8080/search" class="button">
+            <i class="fas fa-users"></i>
+        </a>
+        <h>PEOPLE</h>
     </div>
-    <div class="avatar">
-        <img src="public/img/basic.jpg" alt="Avatar">
+    <div class="icon-container-mobile">
+        <form id ="logoutMob" action="logout" method="GET">
+            <button id="logoutMob" >
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </form>
+        <h>LOGOUT</h>
     </div>
+    <a href="http://localhost:8080/profile" class="button">
+        <div class="avatar">
+
+            <img src="public/img/avatars/<?= $user->getAvatar() ?>.jpg" alt="Avatar">
+
+        </div>
+    </a>
 
 </nav-bar-mobile>
