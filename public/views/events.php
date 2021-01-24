@@ -5,6 +5,9 @@
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"     defer></script>
+    <script type="text/javascript" src="public/js/glideSearch.js" defer ></script>
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>SEARCH PAGE</title>
 </head>
@@ -17,14 +20,16 @@
             <?php include("calendar-bar.php") ?>
         </left-bar>
         <main-content>
+            <div class="block"></div>
             <div class="events-container">
                 <div class="glide">
                     <div data-glide-el="track" class="glide__track">
                         <ul class="glide__slides">
                             <?php foreach ($events as $event):?>
                                 <li class="glide__slide">
-                                    <form id ="request" action="request" method="POST">
+
                                         <div class="event">
+                                            <form id ="request" action="request" method="POST">
                                             <input type=hidden name=eventID value=<?= $event['id']?> >
                                             <input type=hidden name=ownerEmail value=<?= $event['owner']->getEmail() ?> >
                                             <div class="squared-avatar">
@@ -55,8 +60,9 @@
                                             </div>
 
                                             <button>REQUEST</button>
+                                            </form>
                                         </div>
-                                    </form>
+
                                 </li>
 
                             <?php endforeach; ?>
@@ -83,6 +89,5 @@
 
     <?php include("navigation_bar_mobile.php") ?>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-<script type="text/javascript" src="public/js/glideSearch.js" ></script>
+
 </body>

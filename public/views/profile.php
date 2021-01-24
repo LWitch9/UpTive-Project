@@ -6,6 +6,9 @@
     <link rel="stylesheet" type=text/css href="public/css/profile.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"      defer></script>
+    <script type="text/javascript" src="public/js/glideProfile.js" defer ></script>
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>PROFILE PAGE</title>
 </head>
@@ -121,6 +124,5 @@
     <?php include("navigation_bar_mobile.php") ?>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-<script type="text/javascript" src="public/js/glideProfile.js" ></script>
+
 </body>

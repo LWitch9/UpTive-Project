@@ -132,9 +132,12 @@ right-main>i{
 
 left-main .glide{
     max-width:45vw;
+    min-width:45vw;
+    padding: 3.5em;
 }
 left-main .glide__slide{
-    max-width: 23vw;
+    max-width: 18vw;
+    min-width: 18vw;
 }
 
 @media only screen and (max-device-width: 420px) {
@@ -157,6 +160,7 @@ left-main .glide__slide{
         min-width:100vw;
         min-height: 100vh;
     }
+
     left-main .glide{
         min-width:100vw;
     }
@@ -164,4 +168,5 @@ left-main .glide__slide{
         max-width: 100vw;
         padding:0 20vw;
     }
+
 }

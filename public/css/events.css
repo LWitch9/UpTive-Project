@@ -131,12 +131,11 @@ ul>li>i{
     min-width: 8em;
 
 }
-.event form>button
+
 .respond-container{
-    min-width: 13em;
     display: flex;
     flex-direction:row;
-    background:red;
+
 
 }
 form{
@@ -235,6 +234,17 @@ form{
     height:4em;
     width:14em;
 }
+
+.glide.glide--ltr.glide--carousel.glide--swipeable{
+    overflow: hidden;
+}
+.glide button{
+    max-width:2em;
+}
+.block{
+    display: none;
+}
+
 @media only screen and (max-device-width: 420px){
     *{
         font-size:36px;
@@ -250,12 +260,19 @@ form{
         font-size: 3em;
         margin:0 1em;
     }
+    .block{
+        display:flex;
+        visibility: hidden;
+        min-height: 5em;
+    }
     .message-container{
         height:5em;
         width:10em;
     }
     .glide__slide{
+
         max-width: 100vw;
-        padding:0 20vw;
+        padding:0 16vw;
+
     }
 }
