@@ -231,6 +231,7 @@ class UserRepository extends Repository
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->bindParam(':logged', $isLogged, PDO::PARAM_BOOL);
         $statement->execute();
+
     }
     public function updateProfile(array $data){
 
