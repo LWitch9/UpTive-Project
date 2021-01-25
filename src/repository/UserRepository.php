@@ -222,6 +222,16 @@ class UserRepository extends Repository
             return false;
         }
     }
+    public function updateIsLogged(string $email, bool $isLogged){
+        $statement = $this->database->connect()->prepare(
+            "UPDATE public.users 
+            SET is_logged = :logged
+            WHERE email = :email;"
+        );
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':logged', $isLogged, PDO::PARAM_BOOL);
+        $statement->execute();
+    }
     public function updateProfile(array $data){
 
        if($data['bio'] == null){
