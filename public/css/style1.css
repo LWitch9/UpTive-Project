@@ -300,7 +300,7 @@ left-bar a.button{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+
 }
 .person{
     display:flex;
@@ -309,6 +309,7 @@ left-bar a.button{
     padding: 1em;
 
 }
+
 .search-bar{
     display:flex;
     flex-direction: row;

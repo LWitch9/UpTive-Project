@@ -222,6 +222,14 @@ class UserRepository extends Repository
             return false;
         }
     }
+    public function updateIsLogged(string $email, bool $isLogged){
+        $statement = $this->database->connect()->prepare(
+            "UPDATE public.users 
+            SET logged = ?
+            WHERE $email = ?;"
+        );
+        $statement->execute([$isLogged,$this->getUserDetailsId($email)]);
+    }
     public function updateProfile(array $data){
 
        if($data['bio'] == null){

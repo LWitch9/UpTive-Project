@@ -45,6 +45,7 @@ class SecurityController extends AppController
         }
 
         $this->setCookies($email);
+        $this->userRepository->updateIsLogged($email, true);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
@@ -54,6 +55,7 @@ class SecurityController extends AppController
         if(isset($_COOKIE['user']) or isset($_COOKIE['isAdmin'])){
             setcookie('user', "", time() - 3600, '/');
             setcookie('isAdmin', "", time() - 3600, '/');
+            $this->userRepository->updateIsLogged($_COOKIE['user'], false);
         }
 
         $url = "http://$_SERVER[HTTP_HOST]";
@@ -96,6 +98,7 @@ class SecurityController extends AppController
         ]);
 
         $this->setCookies($email);
+        $this->userRepository->updateIsLogged($email, true);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location:{$url}/home");
