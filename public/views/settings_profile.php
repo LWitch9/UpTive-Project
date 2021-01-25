@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type=text/css href="public/css/style1.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
-    <link rel="stylesheet" type=text/css href="public/css/form.css">
+    <link rel="stylesheet" type=text/css href="public/css/formEvent.css">
 
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>SETTINGS</title>

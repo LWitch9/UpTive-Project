@@ -229,8 +229,10 @@ form{
     overflow: hidden;
     padding:0.5em 1em;
     margin: 0 1.5em;
-    height:em;
-    width:14em;
+    min-height:6em;
+    min-width:14em;
+    max-height:6em;
+    max-width:14em;
 }
 
 .glide.glide--ltr.glide--carousel.glide--swipeable{
