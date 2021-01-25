@@ -300,6 +300,7 @@ left-bar a.button{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .person{
     display:flex;
@@ -509,6 +510,9 @@ nav-bar-mobile{
     .person{
         min-width: 90vw;
 
+    }
+    button#person{
+        min-width:20em;
     }
 
 }

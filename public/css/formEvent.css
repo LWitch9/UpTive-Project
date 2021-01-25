@@ -1,14 +1,5 @@
-.form-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-items: flex-start;
-    margin: 1em;
 
-
-}
-main-content form{
+form#addEvent{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,6 +9,17 @@ main-content form{
     width:62em;
     padding:0;
     margin:0;
+
+}
+.form-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-items: flex-start;
+    margin: 1em;
+
+
 }
 input{
     margin:1em;
@@ -57,14 +59,14 @@ option{
     color: #222E58;
 }
 
-main-content button{
+button#addEvent{
     align-self: flex-end;
     width:15em;
-    //height:4em;
+//height:4em;
 
     background: #5CA7FD 0% 0% no-repeat padding-box;
     border-radius: 25px;
-    //font-size: 1em;
+//font-size: 1em;
     padding:0;
     margin:0;
 }
@@ -73,9 +75,11 @@ main-content button{
     * {
         font-size: 36px;
     }
-    form{
-        width:100vw;
+    form#addEvent{
+        max-width:100vw;
         height:100vh;
+        max-width:22em;
+
     }
     select{
         min-width: 25em;
@@ -86,6 +90,11 @@ main-content button{
         max-width: 8em;
         margin:0 0.1em 0 1em;
     }
+    input:last-child{
+        min-width: 5.5em;
+        max-width: 5.5em;
+        margin-right:0;
+    }
     textarea{
         min-height: 5em;
         max-height: 5em;
@@ -94,8 +103,10 @@ main-content button{
     }
     .form-container{
         margin:0;
+        max-width:24em;
+
     }
-    button{
+    button#addEvent{
         margin-right:1em;
     }
 }

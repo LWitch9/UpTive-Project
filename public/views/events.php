@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <link rel="stylesheet" type=text/css href="public/css/style1.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.core.min.css">
     <link rel="stylesheet" type=text/css href="public/css/glide.theme.min.css">

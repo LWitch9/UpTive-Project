@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type=text/css href="public/css/style.css">
+    <link rel="stylesheet" type=text/css href="public/css/style1.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
-    <link rel="stylesheet" type=text/css href="public/css/form.css">
+    <link rel="stylesheet" type=text/css href="public/css/formEvent.css">
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
     <title>ADD EVENT</title>
 </head>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="title-label">OPTIONAL</div>
                     <textarea name="about" id="about" cols='50' rows='10' ></textarea>
-                    <button>ADD EVENT</button>
+                    <button id="addEvent">ADD EVENT</button>
                 </form>
         </main-content>
     </main>

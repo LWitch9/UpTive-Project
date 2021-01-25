@@ -2,9 +2,9 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type=text/css href="public/css/style.css">
     <link rel="stylesheet" type=text/css href="public/css/events.css">
     <link rel="stylesheet" type=text/css href="public/css/profile.css">
+    <link rel="stylesheet" type=text/css href="public/css/style1.css">
 
     <script defer type="text/javascript" src="public/js/search.js" ></script>
     <script src="https://kit.fontawesome.com/2f35c77861.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
                     <div class="person">
                         <form id ="profile-other-user" action="profileOtherUser" method="POST">
                             <input type=hidden name=email value=<?= $person->getEmail() ?> >
-                            <button>
+                            <button id="person">
                                 <div class="avatar-profile">
                                     <img src="public/img/avatars/<?= $person->getAvatar()?>.jpg" alt="Avatar">
                                 </div>
